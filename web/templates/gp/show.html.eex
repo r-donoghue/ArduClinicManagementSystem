@@ -1,0 +1,43 @@
+<h2>Show gp</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @gp.name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @gp.address %>
+  </li>
+
+  <li>
+    <strong>Mobile number:</strong>
+    <%= @gp.mobile_number %>
+  </li>
+
+  <li>
+    <strong>Landline number:</strong>
+    <%= @gp.landline_number %>
+  </li>
+
+  <li>
+    <strong>Fax:</strong>
+    <%= @gp.fax %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @gp.email %>
+  </li>
+
+  <li>
+    <strong>Training level:</strong>
+    <%= @gp.training_level %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: gp_path(@conn, :edit, @gp) %>
+<%= link "Back", to: gp_path(@conn, :index) %>

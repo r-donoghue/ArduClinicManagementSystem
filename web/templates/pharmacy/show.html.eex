@@ -1,0 +1,38 @@
+<h2>Show pharmacy</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @pharmacy.name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @pharmacy.address %>
+  </li>
+
+  <li>
+    <strong>Mobile number:</strong>
+    <%= @pharmacy.mobile_number %>
+  </li>
+
+  <li>
+    <strong>Landline number:</strong>
+    <%= @pharmacy.landline_number %>
+  </li>
+
+  <li>
+    <strong>Fax:</strong>
+    <%= @pharmacy.fax %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @pharmacy.email %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: pharmacy_path(@conn, :edit, @pharmacy) %>
+<%= link "Back", to: pharmacy_path(@conn, :index) %>

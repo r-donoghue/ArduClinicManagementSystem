@@ -1,0 +1,108 @@
+<h2>Show patient</h2>
+
+<ul>
+
+  <li>
+    <strong>Gp:</strong>
+    <%= @patient.gp_id %>
+  </li>
+
+  <li>
+    <strong>Cdoctor:</strong>
+    <%= @patient.cdoctor_id %>
+  </li>
+
+  <li>
+    <strong>Pharm:</strong>
+    <%= @patient.pharm_id %>
+  </li>
+
+  <li>
+    <strong>Ph number:</strong>
+    <%= @patient.ph_number %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @patient.name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @patient.address %>
+  </li>
+
+  <li>
+    <strong>Ppsn:</strong>
+    <%= @patient.ppsn %>
+  </li>
+
+  <li>
+    <strong>Date of birth:</strong>
+    <%= @patient.date_of_birth %>
+  </li>
+
+  <li>
+    <strong>Gender:</strong>
+    <%= @patient.gender %>
+  </li>
+
+  <li>
+    <strong>Medical card present:</strong>
+    <%= @patient.medical_card_present %>
+  </li>
+
+  <li>
+    <strong>Medical card number:</strong>
+    <%= @patient.medical_card_number %>
+  </li>
+
+  <li>
+    <strong>Medical card expiry:</strong>
+    <%= @patient.medical_card_expiry %>
+  </li>
+
+  <li>
+    <strong>Mobile number:</strong>
+    <%= @patient.mobile_number %>
+  </li>
+
+  <li>
+    <strong>Landline number:</strong>
+    <%= @patient.landline_number %>
+  </li>
+
+  <li>
+    <strong>Nok name:</strong>
+    <%= @patient.nok_name %>
+  </li>
+
+  <li>
+    <strong>Nok address:</strong>
+    <%= @patient.nok_address %>
+  </li>
+
+  <li>
+    <strong>Nok mobile number:</strong>
+    <%= @patient.nok_mobile_number %>
+  </li>
+
+  <li>
+    <strong>Nok landline number:</strong>
+    <%= @patient.nok_landline_number %>
+  </li>
+
+  <li>
+    <strong>Active:</strong>
+    <%= @patient.active %>
+  </li>
+
+  <li>
+    <strong>Active details:</strong>
+    <%= @patient.active_details %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: patient_path(@conn, :edit, @patient) %>
+<%= link "Back", to: patient_path(@conn, :index) %>

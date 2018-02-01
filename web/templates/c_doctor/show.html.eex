@@ -1,0 +1,43 @@
+<h2>Show c doctor</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @c_doctor.name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @c_doctor.address %>
+  </li>
+
+  <li>
+    <strong>Mobile number:</strong>
+    <%= @c_doctor.mobile_number %>
+  </li>
+
+  <li>
+    <strong>Landline number:</strong>
+    <%= @c_doctor.landline_number %>
+  </li>
+
+  <li>
+    <strong>Fax:</strong>
+    <%= @c_doctor.fax %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @c_doctor.email %>
+  </li>
+
+  <li>
+    <strong>Training level:</strong>
+    <%= @c_doctor.training_level %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: c_doctor_path(@conn, :edit, @c_doctor) %>
+<%= link "Back", to: c_doctor_path(@conn, :index) %>

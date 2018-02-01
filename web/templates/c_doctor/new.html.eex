@@ -1,0 +1,6 @@
+<h2>New c doctor</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: c_doctor_path(@conn, :create) %>
+
+<%= link "Back", to: c_doctor_path(@conn, :index) %>
