@@ -1,15 +1,10 @@
-<h2>Listing cdoctors</h2>
+<h2>Clinic Doctors</h2>
 
 <table class="table">
   <thead>
     <tr>
-     <th>ID</th>
       <th>Name</th>
       <th>Address</th>
-      <th>Mobile number</th>
-      <th>Landline number</th>
-      <th>Fax</th>
-      <th>Email</th>
       <th>Training level</th>
 
       <th></th>
@@ -18,23 +13,17 @@
   <tbody>
 <%= for c_doctor <- @cdoctors do %>
     <tr>
-    <td><%= c_doctor.cdoctor_id%></td>
       <td><%= c_doctor.name %></td>
       <td><%= c_doctor.address %></td>
-      <td><%= c_doctor.mobile_number %></td>
-      <td><%= c_doctor.landline_number %></td>
-      <td><%= c_doctor.fax %></td>
-      <td><%= c_doctor.email %></td>
       <td><%= c_doctor.training_level %></td>
 
       <td class="text-right">
-        <%= link "Show", to: c_doctor_path(@conn, :show, c_doctor), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: c_doctor_path(@conn, :edit, c_doctor), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: c_doctor_path(@conn, :delete, c_doctor), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Show", to: c_doctor_path(@conn, :show, c_doctor), class: "btn btn-primary btn" %>
+        <%= link "Edit", to: c_doctor_path(@conn, :edit, c_doctor), class: "btn btn-primary btn" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New c doctor", to: c_doctor_path(@conn, :new) %>
+<%= link "New Clinic Doctor", to: c_doctor_path(@conn, :new), class: "btn btn-primary btn" %>

@@ -3,4 +3,4 @@
 <%= render "form.html", changeset: @changeset,
                         action: pharmacy_path(@conn, :create) %>
 
-<%= link "Back", to: pharmacy_path(@conn, :index) %>
+<%= link "Back", to: pharmacy_path(@conn, :index), class: "btn btn-default btn" %>

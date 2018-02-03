@@ -1,4 +1,4 @@
-<h2>Listing pharms</h2>
+<h2>Pharmacies</h2>
 
 <table class="table">
   <thead>
@@ -6,9 +6,6 @@
       <th>Name</th>
       <th>Address</th>
       <th>Mobile number</th>
-      <th>Landline number</th>
-      <th>Fax</th>
-      <th>Email</th>
 
       <th></th>
     </tr>
@@ -19,18 +16,14 @@
       <td><%= pharmacy.name %></td>
       <td><%= pharmacy.address %></td>
       <td><%= pharmacy.mobile_number %></td>
-      <td><%= pharmacy.landline_number %></td>
-      <td><%= pharmacy.fax %></td>
-      <td><%= pharmacy.email %></td>
 
       <td class="text-right">
-        <%= link "Show", to: pharmacy_path(@conn, :show, pharmacy), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: pharmacy_path(@conn, :edit, pharmacy), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: pharmacy_path(@conn, :delete, pharmacy), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Show", to: pharmacy_path(@conn, :show, pharmacy), class: "btn btn-primary btn" %>
+        <%= link "Edit", to: pharmacy_path(@conn, :edit, pharmacy), class: "btn btn-primary btn" %> 
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New pharmacy", to: pharmacy_path(@conn, :new) %>
+<%= link "New pharmacy", to: pharmacy_path(@conn, :new), class: "btn btn-primary btn"  %>

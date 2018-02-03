@@ -6,7 +6,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
+    <%= label f, "Name", class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
   </div>
@@ -43,7 +43,7 @@
 
   <div class="form-group">
     <%= label f, :training_level, class: "control-label" %>
-    <%= text_input f, :training_level, class: "form-control" %>
+    <%=select(f, :training_level, ["Level 1": 1, "Level 2": 2], prompt: "Choose a training level",class: "form-control")%>
     <%= error_tag f, :training_level %>
   </div>
 

@@ -11,6 +11,8 @@ defmodule Cmsv1.Pharmacy do
     field :landline_number, :string
     field :fax, :string
     field :email, :string
+    field :contact_person, :string
+    field :contact_person_number, :string
     has_many :patients, Cmsv1.Patient
 
     timestamps()
@@ -21,7 +23,7 @@ defmodule Cmsv1.Pharmacy do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :address, :mobile_number, :landline_number, :fax, :email])
-    |> validate_required([:name, :address, :mobile_number, :landline_number, :fax, :email])
+    |> cast(params, [:name, :address, :mobile_number, :landline_number, :fax, :email, :contact_person, :contact_person_number])
+    |> validate_required([:name, :address, :mobile_number, :landline_number, :fax, :email, :contact_person, :contact_person_number])
   end
 end

@@ -7,27 +7,42 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Cmsv1!</title>
+    <title>CMS Version 1.0</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+  <body class="bg">
+  <div class="container-fluid full">
+    <header class="header">
+          <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Ardu Management System</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class=""><%=link("Pharmacies", to: "/pharms", method: "get")%></li>
+                <li class=""><%=link("General Practitoners", to: "/gps", method: "get")%></li>
+                <li class=""><%=link("Clinic Doctors", to: "/cdoctors", method: "get")%></li>
+                <li class=""><%=link("Patients", to: "/patients", method: "get")%></li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+    </div>
+    <div class="container"></br>
+    <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+    <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+    <div class="container-fluid">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <main role="main">
+              <%= render @view_module, @view_template, assigns %>
+            </main>
+        </div>
+      </div>
+    </div>
+      
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

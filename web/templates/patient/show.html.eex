@@ -101,6 +101,10 @@
     <strong>Active details:</strong>
     <%= @patient.active_details %>
   </li>
+  <li>
+    <strong>Age:</strong>
+    <%= @patient.age %>
+  </li>
 
 </ul>
 

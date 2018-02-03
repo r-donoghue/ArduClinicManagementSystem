@@ -1,43 +1,38 @@
-<h2>Show gp</h2>
+<h2>Showing <%= @gp.name %></h2>
+  <table class="table table-user-information">
+    <tbody>
+      <tr>
+        <td><b>Doctor Name:</td>
+        <td><%= @gp.name %></td>
+      </tr>
+      <tr>
+        <td><b>Address:</td>
+        <td><%= @gp.address %></td>
+      </tr>
+      <tr>
+        <td><b>Mobile Number:</td>
+        <td><%= @gp.mobile_number %></td>
+      </tr>         
+      <tr>
+        <tr>
+          <td><b>Landline Number:</td>
+          <td><%= @gp.landline_number %></td>
+        </tr>
+        <tr>
+          <td><b>Fax Number:</td>
+          <td><%= @gp.fax %></td>
+        </tr>
+        <tr>
+          <td><b>Email:</td>
+          <td><%= @gp.email %></td>
+        </tr>
+          <td><b>Training Level:</td>
+          <td><%= @gp.training_level %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @gp.name %>
-  </li>
-
-  <li>
-    <strong>Address:</strong>
-    <%= @gp.address %>
-  </li>
-
-  <li>
-    <strong>Mobile number:</strong>
-    <%= @gp.mobile_number %>
-  </li>
-
-  <li>
-    <strong>Landline number:</strong>
-    <%= @gp.landline_number %>
-  </li>
-
-  <li>
-    <strong>Fax:</strong>
-    <%= @gp.fax %>
-  </li>
-
-  <li>
-    <strong>Email:</strong>
-    <%= @gp.email %>
-  </li>
-
-  <li>
-    <strong>Training level:</strong>
-    <%= @gp.training_level %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: gp_path(@conn, :edit, @gp) %>
-<%= link "Back", to: gp_path(@conn, :index) %>
+<%= link "Edit", to: gp_path(@conn, :edit, @gp), class: "btn btn-primary btn" %>
+  
+<%= link "Back", to: gp_path(@conn, :index), class: "btn btn-default btn" %>

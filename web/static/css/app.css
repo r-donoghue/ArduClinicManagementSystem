@@ -1,1 +1,19 @@
-/* This file is for your main application css. */
+/* This file is for your main application css. *//* This file is for your main application css. */
+body, html {
+    height: 100%;
+    color:  #1BA39C;
+}
+
+.bg { 
+    /* The image used */
+    background-image: url("https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=af611c47b827d67c95ce012231e8d02f&auto=format&fit=crop&w=2734&q=80");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

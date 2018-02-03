@@ -3,4 +3,4 @@
 <%= render "form.html", changeset: @changeset,
                         action: gp_path(@conn, :update, @gp) %>
 
-<%= link "Back", to: gp_path(@conn, :index) %>
+<%= link "Back", to: gp_path(@conn, :index), class: "btn btn-primary btn" %>

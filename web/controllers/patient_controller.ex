@@ -1,5 +1,7 @@
 defmodule Cmsv1.PatientController do
   use Cmsv1.Web, :controller
+  import Ecto.Changeset
+  import Ecto.Date
 
   alias Cmsv1.Patient
   alias Cmsv1.CDoctor
@@ -21,7 +23,11 @@ defmodule Cmsv1.PatientController do
 
   def create(conn, %{"patient" => patient_params}) do
     changeset = Patient.changeset(%Patient{}, patient_params)
+
+    dob = AgeCalc.age(get_change(changeset, :date_of_birth))
+    changeset = change(changeset, %{age: dob})
     IO.inspect(changeset)
+    
     case Repo.insert(changeset) do
       {:ok, _patient} ->
         conn

@@ -1,28 +1,11 @@
-<h2>Listing patients</h2>
+<h2>Patients</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Gp</th>
-      <th>Cdoctor</th>
-      <th>Pharm</th>
-      <th>Ph number</th>
       <th>Name</th>
-      <th>Address</th>
       <th>Ppsn</th>
       <th>Date of birth</th>
-      <th>Gender</th>
-      <th>Medical card present</th>
-      <th>Medical card number</th>
-      <th>Medical card expiry</th>
-      <th>Mobile number</th>
-      <th>Landline number</th>
-      <th>Nok name</th>
-      <th>Nok address</th>
-      <th>Nok mobile number</th>
-      <th>Nok landline number</th>
-      <th>Active</th>
-      <th>Active details</th>
 
       <th></th>
     </tr>
@@ -30,32 +13,14 @@
   <tbody>
 <%= for patient <- @patients do %>
     <tr>
-      <td><%= patient.gp_id %></td>
-      <td><%= patient.cdoctor_id %></td>
-      <td><%= patient.pharm_id %></td>
-      <td><%= patient.ph_number %></td>
       <td><%= patient.name %></td>
-      <td><%= patient.address %></td>
       <td><%= patient.ppsn %></td>
       <td><%= patient.date_of_birth %></td>
-      <td><%= patient.gender %></td>
-      <td><%= patient.medical_card_present %></td>
-      <td><%= patient.medical_card_number %></td>
-      <td><%= patient.medical_card_expiry %></td>
-      <td><%= patient.mobile_number %></td>
-      <td><%= patient.landline_number %></td>
-      <td><%= patient.nok_name %></td>
-      <td><%= patient.nok_address %></td>
-      <td><%= patient.nok_mobile_number %></td>
-      <td><%= patient.nok_landline_number %></td>
-      <td><%= patient.active %></td>
-      <td><%= patient.active_details %></td>
 
       <td class="text-right">
         <%= link "Show", to: patient_path(@conn, :show, patient), class: "btn btn-default btn-xs" %>
         <%= link "Edit", to: patient_path(@conn, :edit, patient), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: patient_path(@conn, :delete, patient), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
-      </td>
+        </td>
     </tr>
 <% end %>
   </tbody>

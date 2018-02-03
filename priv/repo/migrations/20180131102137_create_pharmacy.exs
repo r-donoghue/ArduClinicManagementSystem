@@ -10,6 +10,8 @@ defmodule Cmsv1.Repo.Migrations.CreatePharmacy do
       add :landline_number, :string
       add :fax, :string
       add :email, :string
+      add :contact_person, :string
+      add :contact_person_number, :string
 
       timestamps()
     end

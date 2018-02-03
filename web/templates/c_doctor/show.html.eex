@@ -1,43 +1,38 @@
-<h2>Show c doctor</h2>
+<h2>Showing <%= @c_doctor.name %></h2>
+  <table class="table table-user-information">
+    <tbody>
+      <tr>
+        <td><b>Doctor Name:</td>
+        <td><%= @c_doctor.name %></td>
+      </tr>
+      <tr>
+        <td><b>Address:</td>
+        <td><%= @c_doctor.address %></td>
+      </tr>
+      <tr>
+        <td><b>Mobile Number:</td>
+        <td><%= @c_doctor.mobile_number %></td>
+      </tr>         
+      <tr>
+        <tr>
+          <td><b>Landline Number:</td>
+          <td><%= @c_doctor.landline_number %></td>
+        </tr>
+        <tr>
+          <td><b>Fax Number:</td>
+          <td><%= @c_doctor.fax %></td>
+        </tr>
+        <tr>
+          <td><b>Email:</td>
+          <td><%= @c_doctor.email %></td>
+        </tr>
+          <td><b>Training Level:</td>
+          <td><%= @c_doctor.training_level %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @c_doctor.name %>
-  </li>
-
-  <li>
-    <strong>Address:</strong>
-    <%= @c_doctor.address %>
-  </li>
-
-  <li>
-    <strong>Mobile number:</strong>
-    <%= @c_doctor.mobile_number %>
-  </li>
-
-  <li>
-    <strong>Landline number:</strong>
-    <%= @c_doctor.landline_number %>
-  </li>
-
-  <li>
-    <strong>Fax:</strong>
-    <%= @c_doctor.fax %>
-  </li>
-
-  <li>
-    <strong>Email:</strong>
-    <%= @c_doctor.email %>
-  </li>
-
-  <li>
-    <strong>Training level:</strong>
-    <%= @c_doctor.training_level %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: c_doctor_path(@conn, :edit, @c_doctor) %>
-<%= link "Back", to: c_doctor_path(@conn, :index) %>
+<%= link "Edit", to: c_doctor_path(@conn, :edit, @c_doctor), class: "btn btn-primary btn" %>
+  
+<%= link "Back", to: c_doctor_path(@conn, :index), class: "btn btn-default btn" %>

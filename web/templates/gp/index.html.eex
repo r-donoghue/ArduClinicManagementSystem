@@ -1,14 +1,10 @@
-<h2>Listing gps</h2>
+<h2>General Practitioners</h2>
 
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Address</th>
-      <th>Mobile number</th>
-      <th>Landline number</th>
-      <th>Fax</th>
-      <th>Email</th>
       <th>Training level</th>
 
       <th></th>
@@ -19,20 +15,15 @@
     <tr>
       <td><%= gp.name %></td>
       <td><%= gp.address %></td>
-      <td><%= gp.mobile_number %></td>
-      <td><%= gp.landline_number %></td>
-      <td><%= gp.fax %></td>
-      <td><%= gp.email %></td>
       <td><%= gp.training_level %></td>
 
       <td class="text-right">
-        <%= link "Show", to: gp_path(@conn, :show, gp), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: gp_path(@conn, :edit, gp), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: gp_path(@conn, :delete, gp), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Show", to: gp_path(@conn, :show, gp), class: "btn btn-primary btn" %>
+        <%= link "Edit", to: gp_path(@conn, :edit, gp), class: "btn btn-primary btn" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New gp", to: gp_path(@conn, :new) %>
+<%= link "New General Practitioner", to: gp_path(@conn, :new), class: "btn btn-primary btn" %>
