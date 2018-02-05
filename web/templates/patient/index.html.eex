@@ -18,12 +18,12 @@
       <td><%= patient.date_of_birth %></td>
 
       <td class="text-right">
-        <%= link "Show", to: patient_path(@conn, :show, patient), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: patient_path(@conn, :edit, patient), class: "btn btn-default btn-xs" %>
+        <%= link "Show", to: patient_path(@conn, :show, patient), class: "btn btn-primary btn" %>
+        <%= link "Edit", to: patient_path(@conn, :edit, patient), class: "btn btn-primary btn" %>
         </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New patient", to: patient_path(@conn, :new) %>
+<%= link "New patient", to: patient_path(@conn, :new), class: "btn btn-primary btn" %>

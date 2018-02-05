@@ -83,5 +83,6 @@
     </tbody>
   </table>
 
-<%= link "Edit", to: patient_path(@conn, :edit, @patient) %>
-<%= link "Back", to: patient_path(@conn, :index) %>
+<%= link "Edit", to: patient_path(@conn, :edit, @patient), class: "btn btn-primary btn" %>
+  
+<%= link "Back", to: patient_path(@conn, :index), class: "btn btn-default btn" %>

@@ -27,6 +27,10 @@ defmodule Cmsv1.PatientController do
     dob = AgeCalc.age(get_change(changeset, :date_of_birth))
     changeset = change(changeset, %{age: dob})
     IO.inspect(changeset)
+
+    doctors = Repo.all(CDoctor) |> Enum.map(&{&1.name, &1.cdoctor_id})
+    gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id})
+    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id})
     
     case Repo.insert(changeset) do
       {:ok, _patient} ->
@@ -34,7 +38,7 @@ defmodule Cmsv1.PatientController do
         |> put_flash(:info, "Patient created successfully.")
         |> redirect(to: patient_path(conn, :index))
       {:error, changeset} ->
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, doctors: doctors, gps: gps, pharms: pharms)
     end
   end
 
@@ -49,9 +53,13 @@ defmodule Cmsv1.PatientController do
 
   def edit(conn, %{"id" => id}) do
     patient = Repo.get!(Patient, id)
+
+    doctors = Repo.all(CDoctor) |> Enum.map(&{&1.name, &1.cdoctor_id})
+    gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id})
+    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id})
     
     changeset = Patient.changeset(patient)
-    render(conn, "edit.html", patient: patient, changeset: changeset)
+    render(conn, "edit.html", patient: patient, changeset: changeset, doctors: doctors, gps: gps, pharms: pharms)
   end
 
   def update(conn, %{"id" => id, "patient" => patient_params}) do

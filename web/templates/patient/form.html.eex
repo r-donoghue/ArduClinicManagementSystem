@@ -130,7 +130,7 @@
    
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Submit", class: "btn btn-primary btn" %>
   </div>
 <% end %>
 
