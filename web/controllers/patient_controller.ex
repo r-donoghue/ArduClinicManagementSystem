@@ -40,7 +40,11 @@ defmodule Cmsv1.PatientController do
 
   def show(conn, %{"id" => id}) do
     patient = Repo.get!(Patient, id)
-    render(conn, "show.html", patient: patient)
+    doctor = Repo.get!(CDoctor, patient.cdoctor_id)
+    gp = Repo.get!(GP, patient.gp_id)
+    pharmacy = Repo.get!(Pharmacy, patient.pharm_id)
+    IO.puts(patient.gp_id)
+    render(conn, "show.html", patient: patient, doctor: doctor, gp: gp, pharmacy: pharmacy)
   end
 
   def edit(conn, %{"id" => id}) do

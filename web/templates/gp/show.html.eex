@@ -1,38 +1,40 @@
-<h2>Showing <%= @gp.name %></h2>
+<h2><%= @gp.name %></h2>
+
+<div class=""> 
   <table class="table table-user-information">
     <tbody>
       <tr>
-        <td><b>Doctor Name:</td>
+        <td>Doctor Name:</td>
         <td><%= @gp.name %></td>
       </tr>
       <tr>
-        <td><b>Address:</td>
+        <td>Address:</td>
         <td><%= @gp.address %></td>
       </tr>
       <tr>
-        <td><b>Mobile Number:</td>
+        <td>Mobile Number:</td>
         <td><%= @gp.mobile_number %></td>
-      </tr>         
+      </tr>
+                   
       <tr>
         <tr>
-          <td><b>Landline Number:</td>
+          <td>Landline Number:</td>
           <td><%= @gp.landline_number %></td>
         </tr>
         <tr>
-          <td><b>Fax Number:</td>
+          <td>Fax Number:</td>
           <td><%= @gp.fax %></td>
         </tr>
         <tr>
-          <td><b>Email:</td>
+          <td>Email:</td>
           <td><%= @gp.email %></td>
         </tr>
-          <td><b>Training Level:</td>
+          <td>Training Level:</td>
           <td><%= @gp.training_level %>
         </td>
       </tr>
     </tbody>
   </table>
-
-<%= link "Edit", to: gp_path(@conn, :edit, @gp), class: "btn btn-primary btn" %>
-  
-<%= link "Back", to: gp_path(@conn, :index), class: "btn btn-default btn" %>
+<%= link "Edit", to: gp_path(@conn, :edit, @gp), class: "btn btn-primary text-center" %>
+<a></a>
+<%= link "Back", to: gp_path(@conn, :index), class: "btn btn-primary text-center" %>

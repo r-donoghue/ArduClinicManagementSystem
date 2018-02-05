@@ -38,7 +38,7 @@ defmodule Cmsv1.Patient do
 
     struct
     |> cast(params, [:ph_number, :name, :address, :ppsn, :date_of_birth, :gender, :medical_card_present, :medical_card_number, :medical_card_expiry, :mobile_number, :landline_number, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :active_details, :cdoctor_id, :gp_id, :pharm_id])
-    |> validate_required([:ph_number, :name, :address, :ppsn, :date_of_birth, :gender, :medical_card_present, :medical_card_number, :medical_card_expiry, :mobile_number, :landline_number, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :active_details, :cdoctor_id, :gp_id, :pharm_id])
+    |> validate_required([:ph_number, :name, :address, :ppsn, :date_of_birth, :gender, :medical_card_present, :mobile_number, :landline_number, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :cdoctor_id, :gp_id, :pharm_id])
     |> foreign_key_constraint(:gp_id)
     |> foreign_key_constraint(:pharm_id)
     |> foreign_key_constraint(:cdoctor_id)

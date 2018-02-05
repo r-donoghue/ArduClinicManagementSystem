@@ -6,123 +6,145 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, "PH Number", class: "control-label" %>
+    <label>PH Number:</label>
     <%= number_input f, :ph_number, class: "form-control" %>
     <%= error_tag f, :ph_number %>
   </div>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
+    <label>Name:</label>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
   </div>
 
   <div class="form-group">
-    <%= label f, :address, class: "control-label" %>
+    <label>Address:</label>
     <%= text_input f, :address, class: "form-control" %>
     <%= error_tag f, :address %>
   </div>
 
   <div class="form-group">
-    <%= label f, :ppsn, class: "control-label" %>
+    <label>PPSN:</label>
     <%= text_input f, :ppsn, class: "form-control" %>
     <%= error_tag f, :ppsn %>
   </div>
 
   <div class="form-group">
-    <%= label f, :date_of_birth, class: "control-label" %>
+    <label>Date of Birth:</label>
     <%= date_select f, :date_of_birth, year: [options: 1900..2100], class: "form-control" %>
     <%= error_tag f, :date_of_birth %>
   </div>
 
   <div class="form-group">
-    <%= label f, :gender, class: "control-label" %>
+    <label>Gender:</label>
     <%= text_input f, :gender, class: "form-control" %>
     <%= error_tag f, :gender %>
   </div>
 
-  <div class="form-group">
-    <%= label f, :medical_card_present, class: "control-label" %>
-    <%= checkbox f, :medical_card_present, class: "form-control" %>
+  <div class="form-group " >
+    <label class="control-label col-lg-8">Does the patient have a medical card?</label>
+    <%= checkbox f, :medical_card_present, class: "form-check-input ", id: "medical_card", onclick: "ShowHideMedicalCard(this)", style: "width: 30px; height: 30px;"  %>
     <%= error_tag f, :medical_card_present %>
   </div>
 
-  <div class="form-group">
-    <%= label f, :medical_card_number, class: "control-label" %>
-    <%= text_input f, :medical_card_number, class: "form-control" %>
+  <div id="medical_card_number" class="form-group" style="display: none">
+    <label>Medical Card Number:</label>
+    <%= text_input f, :medical_card_number, class: "form-control"  %>
     <%= error_tag f, :medical_card_number %>
   </div>
 
-  <div class="form-group">
-    <%= label f, :medical_card_expiry, class: "control-label" %>
-    <%= date_select f, :medical_card_expiry, class: "form-control" %>
+  <div id="medical_card_expiry"  class="form-group" style="display: none">
+    <label>Medical Card Expiry Date:</label>
+    <%= date_select f, :medical_card_expiry, class: "form-control"%>
     <%= error_tag f, :medical_card_expiry %>
   </div>
 
   <div class="form-group">
-    <%= label f, :mobile_number, class: "control-label" %>
+    <label>Mobile Number:</label>
     <%= text_input f, :mobile_number, class: "form-control" %>
     <%= error_tag f, :mobile_number %>
   </div>
 
   <div class="form-group">
-    <%= label f, :landline_number, class: "control-label" %>
+    <label>Landline Number:</label>
     <%= text_input f, :landline_number, class: "form-control" %>
     <%= error_tag f, :landline_number %>
   </div>
 
   <div class="form-group">
-    <%= label f, :nok_name, class: "control-label" %>
+      <label class="control-label col-lg-8">Is the patient currently active?:</label>
+      <%= checkbox f, :active, class: "form-check-input ", id: "active", onclick: "ShowHideActive(this)", style: "width: 30px; height: 30px;"  %>
+      <%= error_tag f, :active %>
+  </div>
+
+  <div id="active_details" class="form-group" style="display: block" >
+    <label>Inactivity Details (If not active):</label>
+    <%= select(f, :training_level, ["Absent without reason": "Absent without reason","Absent with reason": "Absent with reason", "Deceased": "Deceased", "Prison": "Prison", "Unknown": "Unknown", "Other": "Other"], prompt: "Choose an inactivity reason", class: "form-control" )%>
+    <%= error_tag f, :active_details %>
+  </div>
+ 
+  <div class="form-group">
+    <label>Patient's Clinic Doctor:</label>
+    <%= select f, :cdoctor_id, @doctors, class: "form-control" %>
+    <%= error_tag f, :cdoctor_id %>
+  </div>
+
+  <div class="form-group">
+    <label>Patient's GP:</label>
+    <%= select f, :gp_id, @gps, class: "form-control" %>
+    <%= error_tag f, :gp_id %>
+  </div>
+
+  <div class="form-group">
+    <label>Patient's Pharmacy:</label>
+    <%= select f, :pharm_id, @pharms, class: "form-control" %>
+    <%= error_tag f, :pharm_id %>
+  </div>
+
+  </br><h2>Next of kin details</h2>
+
+  <div class="form-group">
+    <label>Name:</label>
     <%= text_input f, :nok_name, class: "form-control" %>
     <%= error_tag f, :nok_name %>
   </div>
 
   <div class="form-group">
-    <%= label f, :nok_address, class: "control-label" %>
+    <label>Address:</label>
     <%= text_input f, :nok_address, class: "form-control" %>
     <%= error_tag f, :nok_address %>
   </div>
 
   <div class="form-group">
-    <%= label f, :nok_mobile_number, class: "control-label" %>
+    <label>Mobile Number:</label>
     <%= text_input f, :nok_mobile_number, class: "form-control" %>
     <%= error_tag f, :nok_mobile_number %>
   </div>
 
   <div class="form-group">
-    <%= label f, :nok_landline_number, class: "control-label" %>
+    <label>Landline Number:</label>
     <%= text_input f, :nok_landline_number, class: "form-control" %>
     <%= error_tag f, :nok_landline_number %>
   </div>
 
-  <div class="form-group">
-    <%= label f, :active, class: "control-label" %>
-    <%= checkbox f, :active, class: "form-control" %>
-    <%= error_tag f, :active %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :active_details, class: "control-label" %>
-    <%= text_input f, :active_details, class: "form-control" %>
-    <%= error_tag f, :active_details %>
-  </div>
-  <div class="form-group">
-    <%= label f, :cdoctor_id, class: "control-label" %>
-    <%= select f, :cdoctor_id, @doctors, class: "form-control" %>
-    <%= error_tag f, :cdoctor_id %>
-  </div>
-  <div class="form-group">
-    <%= label f, :gp_id, class: "control-label" %>
-    <%= select f, :gp_id, @gps, class: "form-control" %>
-    <%= error_tag f, :gp_id %>
-  </div>
-  <div class="form-group">
-    <%= label f, :pharm_id, class: "control-label" %>
-    <%= select f, :pharm_id, @pharms, class: "form-control" %>
-    <%= error_tag f, :pharm_id %>
-  </div>
+   
 
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    function ShowHideActive(active) {
+        var active_details = document.getElementById("active_details");
+        active_details.style.display = active.checked ? "none" : "block";
+    }
+    function ShowHideMedicalCard(active) {
+        var medical_card_number = document.getElementById("medical_card_number");
+        var medical_card_expiry = document.getElementById("medical_card_expiry");
+        medical_card_number.style.display = active.checked ? "block" : "none";
+        medical_card_expiry.style.display = active.checked ? "block" : "none";
+    }
+</script>
+
+

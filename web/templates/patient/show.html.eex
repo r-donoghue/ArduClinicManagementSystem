@@ -1,112 +1,87 @@
 <h2>Show patient</h2>
 
-<ul>
-
-  <li>
-    <strong>Gp:</strong>
-    <%= @patient.gp_id %>
-  </li>
-
-  <li>
-    <strong>Cdoctor:</strong>
-    <%= @patient.cdoctor_id %>
-  </li>
-
-  <li>
-    <strong>Pharm:</strong>
-    <%= @patient.pharm_id %>
-  </li>
-
-  <li>
-    <strong>Ph number:</strong>
-    <%= @patient.ph_number %>
-  </li>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @patient.name %>
-  </li>
-
-  <li>
-    <strong>Address:</strong>
-    <%= @patient.address %>
-  </li>
-
-  <li>
-    <strong>Ppsn:</strong>
-    <%= @patient.ppsn %>
-  </li>
-
-  <li>
-    <strong>Date of birth:</strong>
-    <%= @patient.date_of_birth %>
-  </li>
-
-  <li>
-    <strong>Gender:</strong>
-    <%= @patient.gender %>
-  </li>
-
-  <li>
-    <strong>Medical card present:</strong>
-    <%= @patient.medical_card_present %>
-  </li>
-
-  <li>
-    <strong>Medical card number:</strong>
-    <%= @patient.medical_card_number %>
-  </li>
-
-  <li>
-    <strong>Medical card expiry:</strong>
-    <%= @patient.medical_card_expiry %>
-  </li>
-
-  <li>
-    <strong>Mobile number:</strong>
-    <%= @patient.mobile_number %>
-  </li>
-
-  <li>
-    <strong>Landline number:</strong>
-    <%= @patient.landline_number %>
-  </li>
-
-  <li>
-    <strong>Nok name:</strong>
-    <%= @patient.nok_name %>
-  </li>
-
-  <li>
-    <strong>Nok address:</strong>
-    <%= @patient.nok_address %>
-  </li>
-
-  <li>
-    <strong>Nok mobile number:</strong>
-    <%= @patient.nok_mobile_number %>
-  </li>
-
-  <li>
-    <strong>Nok landline number:</strong>
-    <%= @patient.nok_landline_number %>
-  </li>
-
-  <li>
-    <strong>Active:</strong>
-    <%= @patient.active %>
-  </li>
-
-  <li>
-    <strong>Active details:</strong>
-    <%= @patient.active_details %>
-  </li>
-  <li>
-    <strong>Age:</strong>
-    <%= @patient.age %>
-  </li>
-
-</ul>
+<table class="table table-user-information">
+    <tbody>
+      <tr>
+        <td>General Practitioner:</td>
+        <td><%= @gp.name %></td>
+      </tr>
+      <tr>
+        <td>Clinic Doctor:</td>
+        <td><%= @gp.address %></td>
+      </tr>
+      <tr>
+        <td>Pharmacy:</td>
+        <td><%= @pharmacy.name %></td>
+      </tr>          
+      <tr>
+        <tr>
+          <td>PH Number:</td>
+          <td><%= @patient.ph_number %></td>
+        </tr>
+        <tr>
+          <td>PPSN:</td>
+          <td><%= @patient.ppsn %></td>
+        </tr>
+        <tr>
+          <td>Date of Birth:</td>
+          <td><%= @patient.address %></td>
+        </tr>
+        <tr>
+          <td>Age:</td>
+          <td><%= @patient.age %>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td><%= @patient.gender %>
+        </tr>
+        <tr>
+          <td>Medical Card Present:</td>
+          <td><%= @patient.medical_card_present %>
+        </tr>
+        <tr>
+          <td>Medical Card Number:</td>
+          <td><%= @patient.medical_card_number %>
+        </tr>
+        <tr>
+          <td>Medical Card Expiry Date:</td>
+          <td><%= @patient.medical_card_expiry %>
+        </tr>
+        <tr>
+          <td>Mobile Number:</td>
+          <td><%= @patient.mobile_number %>
+        </tr>
+        <tr>
+          <td>Landline Number:</td>
+          <td><%= @patient.landline_number %>
+        </tr>
+        <tr>
+          <td>Next of kin name:</td>
+          <td><%= @patient.nok_name %>
+        </tr>
+        <tr>
+          <td>Next of kin address:</td>
+          <td><%= @patient.nok_address %>
+        </tr>
+        <tr>
+          <td>Next of kin mobile number:</td>
+          <td><%= @patient.nok_mobile_number %>
+        </tr>
+        <tr>
+          <td>Next of kin landline number:</td>
+          <td><%= @patient.nok_landline_number %>
+        </tr>
+        <tr>
+          <td>Active Status:</td>
+          <td><%= @patient.active %>
+        </tr>
+        <tr>
+          <td>Inactivity Reason:</td>
+          <td><%= @patient.active_details %>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
 
 <%= link "Edit", to: patient_path(@conn, :edit, @patient) %>
 <%= link "Back", to: patient_path(@conn, :index) %>
