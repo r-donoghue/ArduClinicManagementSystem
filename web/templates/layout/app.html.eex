@@ -14,21 +14,25 @@
   <body class="bg">
   <div class="container-fluid full">
     <header class="header">
-          <nav class="navbar navbar-default navbar-fixed-top">
+          <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
                 <a class="navbar-brand" href="#">Ardu Management System</a>
               </div>
-              <ul class="nav navbar-nav">
-              <li class=""><%=link("Patient", to: "/patients", method: "get")%></li>
-                <li class=""><%=link("Pharmacy", to: "/pharms", method: "get")%></li>
-                <li class=""><%=link("General Practitoner", to: "/gps", method: "get")%></li>
-                <li class=""><%=link("Clinic Doctor", to: "/cdoctors", method: "get")%></li>
+              <ul class="nav navbar-nav  ">
+                <li class="links"><%=link("Patient", to: "/patients", method: "get")%></li>
               </ul>
+              <div class="dropdown">
+              <button class="dropbtn">Clinic Options</button>
+              <div class="dropdown-content">
+                <%=link("Pharmacy", to: "/pharms", method: "get")%></li>
+                <%=link("General Practitoner", to: "/gps", method: "get")%></li>
+                <%=link("Clinic Doctor", to: "/cdoctors", method: "get")%></li>
+              </div>
             </div>
-            
-          </nav>
-        </header>
+          </div>
+        </nav>
+      </header>
     </div>
     <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

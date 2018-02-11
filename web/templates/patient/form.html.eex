@@ -4,6 +4,9 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
+  <div class="alert alert-info">
+      <p>A valid GP, Clinic Doctor and Pharmacy must be present to add a new patient.</p>
+  </div>
 
   <div class="form-group">
     <label>PH Number:</label>
@@ -48,16 +51,20 @@
   </div>
 
   <div id="medical_card_number" class="form-group" style="display: none">
+    <div class="alert alert-info">
     <label>Medical Card Number:</label>
     <%= text_input f, :medical_card_number, class: "form-control"  %>
     <%= error_tag f, :medical_card_number %>
+    </div>
   </div>
 
   <div id="medical_card_expiry"  class="form-group" style="display: none">
+    <div class="alert alert-info">
     <label>Medical Card Expiry Date:</label>
     <%= date_select f, :medical_card_expiry, class: "form-control"%>
     <%= error_tag f, :medical_card_expiry %>
-  </div>
+    </div>
+    </div>
 
   <div class="form-group">
     <label>Mobile Number:</label>
@@ -73,14 +80,16 @@
 
   <div class="form-group">
       <label class="control-label col-lg-8">Is the patient currently active?:</label>
-      <%= checkbox f, :active, class: "form-check-input ", id: "active", onclick: "ShowHideActive(this)", style: "width: 30px; height: 30px;"  %>
+      <%= checkbox f, :active, class: "form-check-input ", id: "active", onclick: "ShowHideActive(this)", style: "width: 30px; height: 30px;" %>
       <%= error_tag f, :active %>
   </div>
 
   <div id="active_details" class="form-group" style="display: block" >
+    <div class="alert alert-info">
     <label>Inactivity Details (If not active):</label>
     <%= select(f, :training_level, ["Absent without reason": "Absent without reason","Absent with reason": "Absent with reason", "Deceased": "Deceased", "Prison": "Prison", "Unknown": "Unknown", "Other": "Other"], prompt: "Choose an inactivity reason", class: "form-control" )%>
     <%= error_tag f, :active_details %>
+    </div>
   </div>
  
   <div class="form-group">
@@ -108,6 +117,7 @@
     <%= text_input f, :nok_name, class: "form-control" %>
     <%= error_tag f, :nok_name %>
   </div>
+  
 
   <div class="form-group">
     <label>Address:</label>
