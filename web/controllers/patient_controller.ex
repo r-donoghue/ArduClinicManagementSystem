@@ -7,6 +7,7 @@ defmodule Cmsv1.PatientController do
   alias Cmsv1.CDoctor
   alias Cmsv1.GP
   alias Cmsv1.Pharmacy
+  alias Cmsv1.Inactivity
 
   def index(conn, _params) do
     patients = Repo.all(Patient)

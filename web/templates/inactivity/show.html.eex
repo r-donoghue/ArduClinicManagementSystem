@@ -1,0 +1,13 @@
+<h2>Show inactivity</h2>
+
+<ul>
+
+  <li>
+    <strong>Reason:</strong>
+    <%= @inactivity.reason %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: inactivity_path(@conn, :edit, @inactivity) %>
+<%= link "Back", to: inactivity_path(@conn, :index) %>

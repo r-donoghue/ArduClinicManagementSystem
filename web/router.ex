@@ -21,6 +21,8 @@ defmodule Cmsv1.Router do
     resources "/gps", GPController
     resources "/cdoctors", CDoctorController
     resources "/patients", PatientController
+    resources "/reasons", InactivityController
+    
   end
 
   # Other scopes may use custom stacks.

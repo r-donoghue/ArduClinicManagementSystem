@@ -1,0 +1,6 @@
+<h2>Edit inactivity</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: inactivity_path(@conn, :update, @inactivity) %>
+
+<%= link "Back", to: inactivity_path(@conn, :index) %>

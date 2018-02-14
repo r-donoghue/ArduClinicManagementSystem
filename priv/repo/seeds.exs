@@ -9,3 +9,15 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+
+reason = %Cmsv1.Inactivity{reason: "Death"}
+Cmsv1.Repo.insert(reason)
+reason = %Cmsv1.Inactivity{reason: "Absent without reason"}
+Cmsv1.Repo.insert(reason)
+reason = %Cmsv1.Inactivity{reason: "Deceased"}
+Cmsv1.Repo.insert(reason)
+reason = %Cmsv1.Inactivity{reason: "Prison"}
+Cmsv1.Repo.insert(reason)
+reason = %Cmsv1.Inactivity{reason: "Unknown"}
+Cmsv1.Repo.insert(reason)
