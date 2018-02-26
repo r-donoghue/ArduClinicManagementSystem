@@ -5,8 +5,8 @@ defmodule Cmsv1.PatientCommander do
   alias Cmsv1.Repo
 
   def refresh_pharms(socket, _sender) do
-    pharmacy = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id}) |> Enum.into(%{})  
+    pharm = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id}) |> Enum.into(%{})  
     IO.inspect pharmacy
-    set_prop socket, "#patient_pharm_id" , pharms: pharmacy
+    set_prop socket, "#patient_pharm_id" , pharms: pharm
   end
 end
