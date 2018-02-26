@@ -1,7 +1,10 @@
 defmodule Cmsv1.PatientController do
   use Cmsv1.Web, :controller
+  use Drab.Controller
+
   import Ecto.Changeset
   import Ecto.Date
+  
 
   alias Cmsv1.Patient
   alias Cmsv1.CDoctor
@@ -18,8 +21,11 @@ defmodule Cmsv1.PatientController do
     changeset = Patient.changeset(%Patient{})
     doctors = Repo.all(CDoctor) |> Enum.map(&{&1.name, &1.cdoctor_id})
     gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id})
+    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id}) |> Enum.into(%{}) 
+    IO.inspect pharms
     pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id})
-    render(conn, "new.html", changeset: changeset, doctors: doctors, gps: gps, pharms: pharms)
+    IO.inspect pharms
+    render(conn, "new.html", changeset: changeset, doctors: doctors, gps: gps, pharms: pharms, welcome_text: "Welcome to Phoenix!")
   end
 
   def create(conn, %{"patient" => patient_params}) do
@@ -27,11 +33,12 @@ defmodule Cmsv1.PatientController do
 
     dob = AgeCalc.age(get_change(changeset, :date_of_birth))
     changeset = change(changeset, %{age: dob})
-    IO.inspect(changeset)
 
     doctors = Repo.all(CDoctor) |> Enum.map(&{&1.name, &1.cdoctor_id})
     gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id})
     pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id})
+
+    
     
     case Repo.insert(changeset) do
       {:ok, _patient} ->

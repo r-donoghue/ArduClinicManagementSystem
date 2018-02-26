@@ -4,10 +4,33 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
+
   <div class="alert alert-info">
       <p>A valid GP, Clinic Doctor and Pharmacy must be present to add a new patient.</p>
   </div>
 
+  
+  <div class="form-group">
+  
+    <label>Patient's Pharmacy:</label>
+    <button drab-click="refresh_pharms">Replace List</button>
+    <%= select f, :pharm_id, @pharms, class: "form-control"%>
+    <%= error_tag f, :pharm_id %>
+  </div>
+  
+  <div class="form-group">
+    <label>Patient's Clinic Doctor:</label>
+    <%= select f, :cdoctor_id, @doctors, class: "form-control" %>
+    <%= error_tag f, :cdoctor_id %>
+  </div>
+
+  <div class="form-group">
+    <label>Patient's GP:</label>
+    <%= select f, :gp_id, @gps, class: "form-control" %>
+    <%= error_tag f, :gp_id %>
+  </div>
+
+  
   <div class="form-group">
     <label>PH Number:</label>
     <%= number_input f, :ph_number, class: "form-control" %>
@@ -92,23 +115,7 @@
     </div>
   </div>
  
-  <div class="form-group">
-    <label>Patient's Clinic Doctor:</label>
-    <%= select f, :cdoctor_id, @doctors, class: "form-control" %>
-    <%= error_tag f, :cdoctor_id %>
-  </div>
-
-  <div class="form-group">
-    <label>Patient's GP:</label>
-    <%= select f, :gp_id, @gps, class: "form-control" %>
-    <%= error_tag f, :gp_id %>
-  </div>
-
-  <div class="form-group">
-    <label>Patient's Pharmacy:</label>
-    <%= select f, :pharm_id, @pharms, class: "form-control" %>
-    <%= error_tag f, :pharm_id %>
-  </div>
+  
 
   </br><h2>Next of kin details</h2>
 
