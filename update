@@ -1,0 +1,2 @@
+#!/bin/bash
+mix deps.get && mix ecto.create && mix ecto.migrate && npm install brunch && npm instal && mix phoenix.server
