@@ -2,6 +2,10 @@
 
 <table class="table table-user-information">
     <tbody>
+    <tr>
+        <td>Name:</td>
+        <td><%= @patient.name %></td>
+      </tr> 
       <tr>
         <td>General Practitioner:</td>
         <td><%= @gp.name %></td>
@@ -39,7 +43,8 @@
           <td>Medical Card Present:</td>
           <td><%= @patient.medical_card_present %>
         </tr>
-        <tr>
+        <%= if @patient.medical_card_present == true do %>
+          <tr>
           <td>Medical Card Number:</td>
           <td><%= @patient.medical_card_number %>
         </tr>
@@ -47,6 +52,9 @@
           <td>Medical Card Expiry Date:</td>
           <td><%= @patient.medical_card_expiry %>
         </tr>
+        <% end %>
+        
+        
         <tr>
           <td>Mobile Number:</td>
           <td><%= @patient.mobile_number %>
@@ -75,10 +83,12 @@
           <td>Active Status:</td>
           <td><%= @patient.active %>
         </tr>
+        <%= if @patient.active == false do %>
         <tr>
           <td>Inactivity Reason:</td>
           <td><%= @patient.active_details %>
         </tr>
+        <% end %>
       </tr>
     </tbody>
   </table>

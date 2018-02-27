@@ -6,7 +6,7 @@ defmodule Cmsv1.Patient do
   @derive {Phoenix.Param, key: :patient_id}
   
   schema "patients" do
-    field :ph_number, :integer
+    field :ph_number, :binary
     field :name, :binary
     field :address, :binary
     field :ppsn, :binary

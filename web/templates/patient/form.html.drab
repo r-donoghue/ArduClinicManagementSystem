@@ -22,29 +22,27 @@
   <center><button class="btn btn-primary btn" drab-click="refresh_fields">Refresh</button></center>
   
   <div class="form-group">
-  
     <label>Patient's Pharmacy:</label>
-    
-    <%= select f, :pharm_id, @pharms, class: "form-control"%>
+    <%= select f, :pharm_id, @pharms, prompt: "Choose a pharmacy", class: "form-control"%>
     <%= error_tag f, :pharm_id %>
   </div>
   
   <div class="form-group">
     <label>Patient's Clinic Doctor:</label>
-    <%= select f, :cdoctor_id, @doctors, class: "form-control" %>
+    <%= select f, :cdoctor_id, @doctors, prompt: "Choose a clinic doctor", class: "form-control" %>
     <%= error_tag f, :cdoctor_id %>
   </div>
 
   <div class="form-group">
     <label>Patient's GP:</label>
-    <%= select f, :gp_id, @gps, class: "form-control" %>
+    <%= select f, :gp_id, @gps, prompt: "Choose a GP", class: "form-control" %>
     <%= error_tag f, :gp_id %>
   </div>
 
   
   <div class="form-group">
     <label>PH Number:</label>
-    <%= number_input f, :ph_number, class: "form-control" %>
+    <%= text_input f, :ph_number, class: "form-control" %>
     <%= error_tag f, :ph_number %>
   </div>
 
@@ -120,13 +118,11 @@
 
   <div id="active_details" class="form-group" style="display: block" >
     <div class="alert alert-info">
-    <label>Inactivity Details (If not active):</label>
-    <%= select(f, :training_level, ["Absent without reason": "Absent without reason","Absent with reason": "Absent with reason", "Deceased": "Deceased", "Prison": "Prison", "Unknown": "Unknown", "Other": "Other"], prompt: "Choose an inactivity reason", class: "form-control" )%>
+    <label>Inactivity Details:</label>
+    <%= select(f, :active_details, @inactivity, prompt: "Choose an inactivity reason", class: "form-control" )%>
     <%= error_tag f, :active_details %>
     </div>
   </div>
- 
-  
 
   </br><h2>Next of kin details</h2>
 

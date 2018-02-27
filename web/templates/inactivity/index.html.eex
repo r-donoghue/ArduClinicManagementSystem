@@ -1,4 +1,4 @@
-<h2>Listing reasons</h2>
+<h2>Listing Inactivity reasons</h2>
 
 <table class="table">
   <thead>
@@ -14,12 +14,10 @@
       <td><%= inactivity.reason %></td>
 
       <td class="text-right">
-        <%= link "Show", to: inactivity_path(@conn, :show, inactivity), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: inactivity_path(@conn, :edit, inactivity), class: "btn btn-default btn-xs" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New inactivity", to: inactivity_path(@conn, :new) %>
+<%= link "New inactivity", to: inactivity_path(@conn, :new), class: "btn btn-primary btn" %>
