@@ -9,11 +9,22 @@
       <p>A valid GP, Clinic Doctor and Pharmacy must be present to add a new patient.</p>
   </div>
 
+  <div class="alert alert-warning">
+      <p>If the patient's GP, Pharmacy or Clinic Doctor is not found in the system, please follow these steps:</p>
+      <ul>
+        <li>Open a new tab or window, and navigate to the desired page (for example, Pharmacy).</li>
+        <li>Add the new record into the system.</li>
+        <li>Return to this page, and click the refresh button below.</li>
+      </ul></br>
+      <p>Once you have started filling out this form, do not close the page or navigate away, or the data on the form willbe lost!</p>
+  </div>
+
+  <center><button class="btn btn-primary btn" drab-click="refresh_fields">Refresh</button></center>
   
   <div class="form-group">
   
     <label>Patient's Pharmacy:</label>
-    <button drab-click="refresh_pharms">Replace List</button>
+    
     <%= select f, :pharm_id, @pharms, class: "form-control"%>
     <%= error_tag f, :pharm_id %>
   </div>

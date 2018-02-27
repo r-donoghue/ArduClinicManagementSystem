@@ -28,6 +28,7 @@
                 <%=link("Pharmacy", to: "/pharms", method: "get")%></li>
                 <%=link("General Practitoner", to: "/gps", method: "get")%></li>
                 <%=link("Clinic Doctor", to: "/cdoctors", method: "get")%></li>
+                <%=link("Manage Inactivity Reasons", to: "/reasons", method: "get")%></li>
               </div>
             </div>
           </div>
