@@ -1,0 +1,6 @@
+<h2>Edit relationship</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: relationship_path(@conn, :update, @relationship) %>
+
+<%= link "Back", to: relationship_path(@conn, :index) %>

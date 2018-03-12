@@ -22,6 +22,8 @@ defmodule Cmsv1.Router do
     resources "/cdoctors", CDoctorController
     resources "/patients", PatientController
     resources "/reasons", InactivityController
+    resources "/genders", GenderController
+    resources "/relationships", RelationshipController
     
   end
 

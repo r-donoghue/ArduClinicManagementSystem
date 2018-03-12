@@ -1,0 +1,26 @@
+<h2>Listing genders</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Gender</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for gender <- @genders do %>
+    <tr>
+      <td><%= gender.gender %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: gender_path(@conn, :show, gender), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: gender_path(@conn, :edit, gender), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: gender_path(@conn, :delete, gender), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New gender", to: gender_path(@conn, :new) %>

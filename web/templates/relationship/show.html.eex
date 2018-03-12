@@ -1,0 +1,13 @@
+<h2>Show relationship</h2>
+
+<ul>
+
+  <li>
+    <strong>Relationship:</strong>
+    <%= @relationship.relationship %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: relationship_path(@conn, :edit, @relationship) %>
+<%= link "Back", to: relationship_path(@conn, :index) %>
