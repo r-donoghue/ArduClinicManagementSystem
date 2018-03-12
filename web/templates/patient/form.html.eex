@@ -1,0 +1,219 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="alert alert-info">
+      <p>A valid GP, Clinic Doctor and Pharmacy must be present to add a new patient.</p>
+  </div>
+
+  <div class="alert alert-warning">
+      <p>If the patient's GP, Pharmacy or Clinic Doctor is not found in the system, please follow these steps:</p>
+      <ul>
+        <li>Open a new tab or window, and navigate to the desired page (for example, Pharmacy).</li>
+        <li>Add the new record into the system.</li>
+        <li>Return to this page, and click the refresh button below.</li>
+      </ul></br>
+      <p>Once you have started filling out this form, do not close the page or navigate away, or the data on the form willbe lost!</p>
+  </div>
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">First Name:</span>
+    <%= text_input f, :fname, class: "form-control" %>
+    <%= error_tag f, :fname %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Last Name:</span>
+    <%= text_input f, :lname, class: "form-control" %>
+    <%= error_tag f, :lname %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Street Name/Number:</span>
+    <%= text_input f, :street, class: "form-control", placeholder: "Street and Number, P.O. box" %><p></p>
+    <%= error_tag f, :street %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Town/City:</span>
+    <%= text_input f, :towncity, class: "form-control" %>
+    <%= error_tag f, :towncity %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">County:</span>
+    <%= select f, :county,["Antrim","Armagh","Carlow","Cavan","Clare","Cork","Derry","Donegal","Down","Dublin","Fermanagh","Galway","Kerry","Kildare","Kilkenny","Laois","Leitrim","Limerick","Longford","Louth","Mayo","Meath","Monaghan","Offaly","Roscommon","Sligo","Tipperary","Tyrone","Waterford","Westmeath","Wexford","Wicklow"] , class: "form-control" %>
+    <%= error_tag f, :county %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Eircode:</span>
+    <%= text_input f, :eircode, class: "form-control" %>
+    <%= error_tag f, :eircode %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Date of birth:</span>
+    <%= date_select f, :date_of_birth, year: [options: 1900..2100], class: "form-control", style: "font-size: 20px" %>
+    <%= error_tag f, :date_of_birth %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Patient's Pharmacy:</span>
+    <%= select f, :pharm_id, @pharms, prompt: "Choose a pharmacy", class: "form-control"%>
+
+    <span class="input-group-addon">
+      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+    </span>
+    <%= error_tag f, :pharm_id %>
+
+  </div></br>
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Patient's Clinic Doctor:</span>
+    <%= select f, :cdoctor_id, @doctors, prompt: "Choose a clinic doctor", class: "form-control" %>
+    <span class="input-group-addon">
+      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+    </span>
+    <%= error_tag f, :cdoctor_id %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Patient's GP:</span>
+    <%= select f, :gp_id, @gps, prompt: "Choose a GP", class: "form-control" %>
+    <span class="input-group-addon">
+      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+    </span>
+    <%= error_tag f, :gp_id %>
+  </div></br>
+
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">PH number:</span>
+    <%= text_input f, :ph_number, class: "form-control", style: "display:inline;" %>
+    <%= error_tag f, :ph_number %><p></p>
+</div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">PPSN:</span>
+    <%= text_input f, :ppsn, class: "form-control", style: "display:inline;" %>
+    <%= error_tag f, :ppsn %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Gender:</span>
+    <%= text_input f, :gender, class: "form-control" %>
+    <span class="input-group-addon">
+      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+    </span>
+    <%= error_tag f, :gender %>
+  </div></br>
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon1">Does the patient have a medical card?</span></span>
+    <%= checkbox f, :medical_card_present, class: "checkbox", id: "medical_card", onclick: "ShowHideMedicalCard(this)", style: "width: 30px; height: 30px; margin-left: 20px;"  %> 
+    <%= error_tag f, :medical_card_present %>
+  </div></br>
+
+  <div id="medical_card_number"class="alert alert-info" style="display: none">
+    <div class="input-group" >
+        <span class="input-group-addon" id="basic-addon1">Medical card number:</span>
+        <%= text_input f, :medical_card_number, class: "form-control"  %>
+        <%= error_tag f, :medical_card_number %>
+    </div></br>
+
+    <div class="input-group" >
+        <span class="input-group-addon" id="basic-addon1">Medical card expiry:</span>
+        <%= date_select f, :medical_card_expiry, class: "form-control"%>
+        <%= error_tag f, :medical_card_expiry %>
+    </div>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Mobile number:</span>
+    <%= text_input f, :mobile_number, class: "form-control" %>
+    <%= error_tag f, :mobile_number %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Landline number:</span>
+    <%= text_input f, :landline_number, class: "form-control" %>
+    <%= error_tag f, :landline_number %>
+  </div></br>
+
+  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Is the patient currently active?:</span>
+      <%= checkbox f, :active, class: "checkbox ", id: "active", onclick: "ShowHideActive(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+      <%= error_tag f, :active %>
+  </div></br>
+
+
+  <div id="active_details" class="alert alert-info" style="display: block">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Inactivity details:</span>
+      <%= select(f, :active_details, @inactivity, prompt: "Choose an inactivity reason", class: "form-control" )%>
+      <%= error_tag f, :active_details %>
+      </div>
+  </div></br>
+
+  </br><h2>Next of kin details</h2>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Relationship to patient:</span>
+    <%= select f, :nok_rel, ["Brother", "Sister"] , class: "form-control" %>
+    <span class="input-group-addon">
+      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+    </span>
+    <%= error_tag f, :nok_rel %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Name:</span>
+    <%= text_input f, :nok_name, class: "form-control" %>
+    <%= error_tag f, :nok_name %>
+  </div></br>
+  
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Address:</span>
+    <%= text_input f, :nok_address, class: "form-control" %>
+    <%= error_tag f, :nok_address %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Mobile number:</span>
+    <%= text_input f, :nok_mobile_number, class: "form-control" %>
+    <%= error_tag f, :nok_mobile_number %>
+  </div></br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Landline number:</span>
+    <%= text_input f, :nok_landline_number, class: "form-control" %>
+    <%= error_tag f, :nok_landline_number %>
+  </div></br>
+
+   
+
+  <div class="form-group">
+    <%= submit "Save", class: "btn btn-primary btn" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    function ShowHideActive(active) {
+        var active_details = document.getElementById("active_details");
+        active_details.style.display = active.checked ? "none" : "block";
+    }
+    function ShowHideMedicalCard(active) {
+        var medical_card_number = document.getElementById("medical_card_number");
+        var medical_card_expiry = document.getElementById("medical_card_expiry");
+        medical_card_number.style.display = active.checked ? "block" : "none";
+        medical_card_expiry.style.display = active.checked ? "block" : "none";
+    }
+</script>
+
+
