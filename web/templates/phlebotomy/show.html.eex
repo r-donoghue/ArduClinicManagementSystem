@@ -1,63 +1,72 @@
-<h2>Show phlebotomy</h2>
+</br><%= for patient <- @patients do %>
+        <%= if patient.patient_id == @phlebotomy.patient_id do %>
+        <h2>Showing phlebotomy record for <%= patient.fname<>" "<>patient.lname %> </h2>
+        <table class="table table-user-information">
+        <tbody>
+          <tr>
+            <td>First Name:</td>
+            <td><%= patient.fname %></td>
+          </tr> 
+          <tr>
+            <td>Last Name:</td>
+            <td><%= patient.lname %></td>
+          </tr>
+        <%= end %> 
+<% end %>
 
-<ul>
+        <tr>
+          <td>HIV Positive:</td>
+          <td><%= @phlebotomy.hiv_status %></td>
+        </tr>
+        <tr>
+          <td>HIV Date:</td>
+          <td><%= @phlebotomy.hiv_date %></td>
+        </tr>
+        <tr>
+          <td>Hepatitus C positive:</td>
+          <td><%= @phlebotomy.hepc_status %></td>
+        </tr>
+        <tr>
+          <td>Hepatitus C date:</td>
+          <td><%= @phlebotomy.hepc_date %></td>
+        </tr>
+        <tr>
+          <td>Hepatitus A positive:</td>
+          <td><%= @phlebotomy.hepa_status %></td>
+        </tr>
+        <tr>
+          <td>Hepatitus A date:</td>
+          <td><%= @phlebotomy.hepa_date %></td>
+        </tr>
+        <tr>
+          <td>Hepatitus B positive:</td>
+          <td><%= @phlebotomy.hepb_status %></td>
+        </tr>
+        <tr>
+          <td>Hepatitus B date:</td>
+          <td><%= @phlebotomy.hepb_date %></td>
+        </tr>
 
-  <li>
-    <strong>Hiv status:</strong>
-    <%= @phlebotomy.hiv_status %>
-  </li>
+        <%= if @phlebotomy.hepb_status  == "true" || @phlebotomy.hiv_status  == "true" do  %>
+        <tr>
+          <td>Patient has been referred:</td>
+          <td><%= @phlebotomy.ref_status %></td>
+        </tr>
+        <tr>
+          <td>Referral date:</td>
+          <td><%= @phlebotomy.ref_date %></td>
+        </tr>
+        <tr>
+          <td>Referred to:</td>
+          <td><%= @phlebotomy.ref_to %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= else %>
+        </tbody>
+      </table>
+    <%= end %>
 
-  <li>
-    <strong>Hiv date:</strong>
-    <%= @phlebotomy.hiv_date %>
-  </li>
 
-  <li>
-    <strong>Hepc status:</strong>
-    <%= @phlebotomy.hepc_status %>
-  </li>
-
-  <li>
-    <strong>Hepc date:</strong>
-    <%= @phlebotomy.hepc_date %>
-  </li>
-
-  <li>
-    <strong>Hepa status:</strong>
-    <%= @phlebotomy.hepa_status %>
-  </li>
-
-  <li>
-    <strong>Hepa date:</strong>
-    <%= @phlebotomy.hepa_date %>
-  </li>
-
-  <li>
-    <strong>Hepb status:</strong>
-    <%= @phlebotomy.hepb_status %>
-  </li>
-
-  <li>
-    <strong>Hepb date:</strong>
-    <%= @phlebotomy.hepb_date %>
-  </li>
-
-  <li>
-    <strong>Ref status:</strong>
-    <%= @phlebotomy.ref_status %>
-  </li>
-
-  <li>
-    <strong>Ref date:</strong>
-    <%= @phlebotomy.ref_date %>
-  </li>
-
-  <li>
-    <strong>Ref to:</strong>
-    <%= @phlebotomy.ref_to %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: phlebotomy_path(@conn, :edit, @phlebotomy) %>
-<%= link "Back", to: phlebotomy_path(@conn, :index) %>
+<%= link "Edit", to: phlebotomy_path(@conn, :edit, @phlebotomy), class: "btn btn-primary btn" %>
+<%= link "Back", to: phlebotomy_path(@conn, :index), class: "btn btn-primary btn" %>

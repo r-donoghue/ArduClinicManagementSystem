@@ -32,6 +32,7 @@ defmodule Cmsv1.Patient do
     belongs_to :gps, Cmsv1.GP, foreign_key: :gp_id, type: :binary_id, references: :gp_id
     belongs_to :cdoctors, Cmsv1.CDoctor, foreign_key: :cdoctor_id, type: :binary_id, references: :cdoctor_id
     belongs_to :pharms, Cmsv1.Pharmacy, foreign_key: :pharm_id, type: :binary_id, references: :pharm_id
+    has_many :phleb, Cmsv1.Phlebotomy
 
     timestamps()
   end
