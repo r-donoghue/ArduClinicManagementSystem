@@ -1,0 +1,46 @@
+<h2>Listing phleb</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Hiv status</th>
+      <th>Hiv date</th>
+      <th>Hepc status</th>
+      <th>Hepc date</th>
+      <th>Hepa status</th>
+      <th>Hepa date</th>
+      <th>Hepb status</th>
+      <th>Hepb date</th>
+      <th>Ref status</th>
+      <th>Ref date</th>
+      <th>Ref to</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for phlebotomy <- @phleb do %>
+    <tr>
+      <td><%= phlebotomy.hiv_status %></td>
+      <td><%= phlebotomy.hiv_date %></td>
+      <td><%= phlebotomy.hepc_status %></td>
+      <td><%= phlebotomy.hepc_date %></td>
+      <td><%= phlebotomy.hepa_status %></td>
+      <td><%= phlebotomy.hepa_date %></td>
+      <td><%= phlebotomy.hepb_status %></td>
+      <td><%= phlebotomy.hepb_date %></td>
+      <td><%= phlebotomy.ref_status %></td>
+      <td><%= phlebotomy.ref_date %></td>
+      <td><%= phlebotomy.ref_to %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: phlebotomy_path(@conn, :show, phlebotomy), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: phlebotomy_path(@conn, :edit, phlebotomy), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: phlebotomy_path(@conn, :delete, phlebotomy), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New phlebotomy", to: phlebotomy_path(@conn, :new) %>

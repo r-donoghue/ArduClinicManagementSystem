@@ -1,0 +1,6 @@
+<h2>Edit phlebotomy</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: phlebotomy_path(@conn, :update, @phlebotomy) %>
+
+<%= link "Back", to: phlebotomy_path(@conn, :index) %>

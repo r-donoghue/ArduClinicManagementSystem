@@ -33,6 +33,12 @@
                 <%=link("Inactivity reason options", to: "/reasons", method: "get")%></li>
             </div>
           </div>
+          <div class="dropdown">
+              <button class="dropbtn">Clinical Measurements</button>
+              <div class="dropdown-content">
+                <%=link("Phlebotomy", to: "/phleb", method: "get")%>
+            </div>
+          </div>
         </nav>
       </header>
     </div>

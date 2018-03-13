@@ -24,6 +24,7 @@ defmodule Cmsv1.Router do
     resources "/reasons", InactivityController
     resources "/genders", GenderController
     resources "/relationships", RelationshipController
+    resources "/phleb", PhlebotomyController
     
   end
 

@@ -1,0 +1,63 @@
+<h2>Show phlebotomy</h2>
+
+<ul>
+
+  <li>
+    <strong>Hiv status:</strong>
+    <%= @phlebotomy.hiv_status %>
+  </li>
+
+  <li>
+    <strong>Hiv date:</strong>
+    <%= @phlebotomy.hiv_date %>
+  </li>
+
+  <li>
+    <strong>Hepc status:</strong>
+    <%= @phlebotomy.hepc_status %>
+  </li>
+
+  <li>
+    <strong>Hepc date:</strong>
+    <%= @phlebotomy.hepc_date %>
+  </li>
+
+  <li>
+    <strong>Hepa status:</strong>
+    <%= @phlebotomy.hepa_status %>
+  </li>
+
+  <li>
+    <strong>Hepa date:</strong>
+    <%= @phlebotomy.hepa_date %>
+  </li>
+
+  <li>
+    <strong>Hepb status:</strong>
+    <%= @phlebotomy.hepb_status %>
+  </li>
+
+  <li>
+    <strong>Hepb date:</strong>
+    <%= @phlebotomy.hepb_date %>
+  </li>
+
+  <li>
+    <strong>Ref status:</strong>
+    <%= @phlebotomy.ref_status %>
+  </li>
+
+  <li>
+    <strong>Ref date:</strong>
+    <%= @phlebotomy.ref_date %>
+  </li>
+
+  <li>
+    <strong>Ref to:</strong>
+    <%= @phlebotomy.ref_to %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: phlebotomy_path(@conn, :edit, @phlebotomy) %>
+<%= link "Back", to: phlebotomy_path(@conn, :index) %>
