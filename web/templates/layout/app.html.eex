@@ -25,11 +25,12 @@
               <div class="dropdown">
               <button class="dropbtn">Clinic Options</button>
               <div class="dropdown-content">
-                <%=link("Pharmacy", to: "/pharms", method: "get")%></li>
-                <%=link("General Practitoner", to: "/gps", method: "get")%></li>
-                <%=link("Clinic Doctor", to: "/cdoctors", method: "get")%></li>
-                <%=link("Manage Inactivity Reasons", to: "/reasons", method: "get")%></li>
-              </div>
+                <%=link("Pharmacy", to: "/pharms", method: "get")%>
+                <%=link("General Practitoner", to: "/gps", method: "get")%>
+                <%=link("Clinic Doctor", to: "/cdoctors", method: "get")%>
+                <%=link("Patient gender options", to: "/genders", method: "get")%></li>
+                <%=link("Patient relationship options", to: "/relationships", method: "get")%></li>
+                <%=link("Inactivity reason options", to: "/reasons", method: "get")%></li>
             </div>
           </div>
         </nav>

@@ -1,4 +1,4 @@
-<h2>New inactivity</h2>
+<h2>Add patient inactivity reason</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: inactivity_path(@conn, :create) %>

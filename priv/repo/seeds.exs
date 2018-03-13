@@ -21,3 +21,18 @@ reason = %Cmsv1.Inactivity{reason: "Prison"}
 Cmsv1.Repo.insert(reason)
 reason = %Cmsv1.Inactivity{reason: "Unknown"}
 Cmsv1.Repo.insert(reason)
+
+gender = %Cmsv1.Gender{gender: "Male"}
+Cmsv1.Repo.insert(gender)
+gender = %Cmsv1.Gender{gender: "Female"}
+Cmsv1.Repo.insert(gender)
+
+relation = %Cmsv1.Gender{gender: "Brother"}
+Cmsv1.Repo.insert(relation)
+relation = %Cmsv1.Gender{gender: "Sister"}
+Cmsv1.Repo.insert(relation)
+relation = %Cmsv1.Gender{gender: "Mother"}
+Cmsv1.Repo.insert(relation)
+relation = %Cmsv1.Gender{gender: "Father"}
+Cmsv1.Repo.insert(relation)
+

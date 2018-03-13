@@ -5,13 +5,13 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= label f, :gender, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Gender:</span>
     <%= text_input f, :gender, class: "form-control" %>
     <%= error_tag f, :gender %>
-  </div>
+  </div></br>
 
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

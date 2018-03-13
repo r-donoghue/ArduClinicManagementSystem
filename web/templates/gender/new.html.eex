@@ -1,4 +1,4 @@
-<h2>New gender</h2>
+<h2>Add gender</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: gender_path(@conn, :create) %>

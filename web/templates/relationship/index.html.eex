@@ -14,9 +14,6 @@
       <td><%= relationship.relationship %></td>
 
       <td class="text-right">
-        <%= link "Show", to: relationship_path(@conn, :show, relationship), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: relationship_path(@conn, :edit, relationship), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: relationship_path(@conn, :delete, relationship), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
       </td>
     </tr>
 <% end %>

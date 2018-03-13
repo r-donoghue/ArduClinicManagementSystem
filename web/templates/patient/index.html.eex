@@ -13,7 +13,7 @@
   <tbody>
 <%= for patient <- @patients do %>
     <tr>
-      <td><%= patient.name %></td>
+      <td><%= patient.fname %></td>
       <td><%= patient.ppsn %></td>
       <td><%= patient.date_of_birth %></td>
 

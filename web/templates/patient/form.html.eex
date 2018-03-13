@@ -105,7 +105,7 @@
 
   <div class="input-group">
     <span class="input-group-addon" id="basic-addon1">Gender:</span>
-    <%= text_input f, :gender, class: "form-control" %>
+    <%= select f, :gender, @genders, class: "form-control" %>
     <span class="input-group-addon">
       <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
     </span>
@@ -164,7 +164,7 @@
 
   <div class="input-group">
     <span class="input-group-addon" id="basic-addon1">Relationship to patient:</span>
-    <%= select f, :nok_rel, ["Brother", "Sister"] , class: "form-control" %>
+    <%= select f, :nok_rel, @relations , class: "form-control" %>
     <span class="input-group-addon">
       <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
     </span>

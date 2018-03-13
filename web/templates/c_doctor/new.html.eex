@@ -1,4 +1,4 @@
-<h2>New Clinic Doctor</h2>
+<h2>Add Clinic Doctor</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: c_doctor_path(@conn, :create) %>

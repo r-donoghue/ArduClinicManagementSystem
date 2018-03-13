@@ -1,4 +1,4 @@
-<h2>New pharmacy</h2>
+<h2>Add pharmacy</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: pharmacy_path(@conn, :create) %>

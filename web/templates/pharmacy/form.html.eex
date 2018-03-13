@@ -5,53 +5,53 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Name:</span>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-    <%= label f, :address, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Address:</span>
     <%= text_input f, :address, class: "form-control" %>
     <%= error_tag f, :address %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-    <%= label f, :mobile_number, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Mobile number:</span>
     <%= text_input f, :mobile_number, class: "form-control" %>
     <%= error_tag f, :mobile_number %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-    <%= label f, :landline_number, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Landline number:</span>
     <%= text_input f, :landline_number, class: "form-control" %>
     <%= error_tag f, :landline_number %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-    <%= label f, :fax, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Fax number:</span>
     <%= text_input f, :fax, class: "form-control" %>
     <%= error_tag f, :fax %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-    <%= label f, :email, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Email:</span>
     <%= text_input f, :email, class: "form-control" %>
     <%= error_tag f, :email %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-      <%= label f, :contact_person, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Alternative contact person:</span>
       <%= text_input f, :contact_person, class: "form-control" %>
       <%= error_tag f, :contact_person %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-    <%= label f, :contact_person_number, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Alternative contact number:</span>
     <%= text_input f, :contact_person_number, class: "form-control" %>
     <%= error_tag f, :contact_person_number %>
-  </div>
+  </div></br>
 
 
   <div class="form-group">

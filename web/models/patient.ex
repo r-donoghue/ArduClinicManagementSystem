@@ -7,8 +7,12 @@ defmodule Cmsv1.Patient do
   
   schema "patients" do
     field :ph_number, :binary
-    field :name, :binary
-    field :address, :binary
+    field :fname, :binary
+    field :lname, :binary
+    field :street, :binary
+    field :towncity, :binary
+    field :county, :binary
+    field :eircode, :binary
     field :ppsn, :binary
     field :date_of_birth, Ecto.Date
     field :gender, :string
@@ -17,6 +21,7 @@ defmodule Cmsv1.Patient do
     field :medical_card_expiry, Ecto.Date
     field :mobile_number, :string
     field :landline_number, :string
+    field :nok_rel, :binary
     field :nok_name, :string
     field :nok_address, :string
     field :nok_mobile_number, :string
@@ -37,8 +42,8 @@ defmodule Cmsv1.Patient do
   def changeset(struct, params \\ %{}) do
 
     struct
-    |> cast(params, [:ph_number, :name, :address, :ppsn, :date_of_birth, :gender, :medical_card_present, :medical_card_number, :medical_card_expiry, :mobile_number, :landline_number, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :active_details, :cdoctor_id, :gp_id, :pharm_id])
-    |> validate_required([:ph_number, :name, :address, :ppsn, :date_of_birth, :gender, :medical_card_present, :mobile_number, :landline_number, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :cdoctor_id, :gp_id, :pharm_id])
+    |> cast(params, [:ph_number, :fname, :lname, :street, :towncity, :county, :eircode, :ppsn, :date_of_birth, :gender, :medical_card_present, :medical_card_number, :medical_card_expiry, :mobile_number, :landline_number, :nok_rel, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :active_details, :cdoctor_id, :gp_id, :pharm_id])
+    |> validate_required([:ph_number, :fname, :lname, :ppsn, :date_of_birth, :gender, :medical_card_present, :mobile_number, :landline_number, :nok_rel, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :cdoctor_id, :gp_id, :pharm_id])
     |> foreign_key_constraint(:gp_id)
     |> foreign_key_constraint(:pharm_id)
     |> foreign_key_constraint(:cdoctor_id)
