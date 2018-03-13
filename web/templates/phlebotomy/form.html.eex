@@ -7,79 +7,114 @@
 
   <div class="form-group">
     <%= label f, :patient_id, class: "control-label" %>
-    <%= select f, :patient_id, @patients, class: "checkbox" %>
+    <%= select f, :patient_id, @patients, class: "form-control" %>
     <%= error_tag f, :patient_id %>
   </div>
+  
+  <div class="panel panel-primary">
+  <div class="panel-heading">HIV Test</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Is the patient HIV positive?</span>
+        <%= checkbox f, :hiv_status, id: "cb1", class: "checkbox", onclick: "ShowHideReferral(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :hiv_status %>
+      </div></br>
+      <div class="form-group">
+        <%= label f, "Test date:", class: "control-label" %>
+        <%= date_select f, :hiv_date, class: "form-control" %>
+        <%= error_tag f, :hiv_date %>
+      </div>
+    </div>
+  </div>
 
-  <div class="form-group">
-    <%= label f, :hiv_status, class: "control-label" %>
-    <%= checkbox f, :hiv_status, class: "checkbox" %>
-    <%= error_tag f, :hiv_status %>
+  <div class="panel panel-primary">
+  <div class="panel-heading">Hepatitus B test</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Is the patient Hepatitus B positive?</span>
+        <%= checkbox f, :hepb_status, id: "cb2", class: "checkbox", onclick: "ShowHideReferral(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :hepb_status %>
+      </div></br>
+      <div class="form-group">
+        <%= label f, "Date:", class: "control-label" %>
+        <%= date_select f, :hepb_date, class: "form-control" %>
+        <%= error_tag f, :hepb_date %>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+  <div class="panel-heading">Hepatitus C test</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Is the patient Hepatitus C positive?</span>
+        <%= checkbox f, :hepc_status, class: "checkbox", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :hepc_status %>
+      </div></br>
+      <div class="form-group">
+        <%= label f, "Date:", class: "control-label" %>
+        <%= date_select f, :hepc_date, class: "form-control" %>
+        <%= error_tag f, :hepc_date %>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+  <div class="panel-heading">Hepatitus A test</div>
+    <div class="panel-body">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Is the patient Hepatitus A positive?</span>
+        <%= checkbox f, :hepa_status, class: "checkbox", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :hepa_status %>
+      </div></br>
+      <div class="form-group">
+        <%= label f, "Date:", class: "control-label" %>
+        <%= date_select f, :hepa_date, class: "form-control" %>
+        <%= error_tag f, :hepa_date %>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-primary" id="referral" style="display: none">
+  <div class="panel-heading">Referral details:</div>
+    <div class="panel-body">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Has the patient been referred?:</span>
+        <%= checkbox f, :ref_status, class: "checkbox", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :ref_status %>
+      </div></br>
+
+      <div class="form-group">
+        <%= label f, :ref_date, class: "control-label" %>
+        <%= date_select f, :ref_date, class: "form-control" %>
+        <%= error_tag f, :ref_date %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Referred to:</span>
+        <%= text_input f, :ref_to, class: "form-control" %>
+        <%= error_tag f, :ref_to %>
+      </div>
+    </div>
   </div>
 
   
 
   <div class="form-group">
-    <%= label f, :hiv_date, class: "control-label" %>
-    <%= date_select f, :hiv_date, class: "form-control" %>
-    <%= error_tag f, :hiv_date %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hepc_status, class: "control-label" %>
-    <%= checkbox f, :hepc_status, class: "checkbox" %>
-    <%= error_tag f, :hepc_status %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hepc_date, class: "control-label" %>
-    <%= date_select f, :hepc_date, class: "form-control" %>
-    <%= error_tag f, :hepc_date %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hepa_status, class: "control-label" %>
-    <%= checkbox f, :hepa_status, class: "checkbox" %>
-    <%= error_tag f, :hepa_status %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hepa_date, class: "control-label" %>
-    <%= date_select f, :hepa_date, class: "form-control" %>
-    <%= error_tag f, :hepa_date %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hepb_status, class: "control-label" %>
-    <%= checkbox f, :hepb_status, class: "checkbox" %>
-    <%= error_tag f, :hepb_status %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hepb_date, class: "control-label" %>
-    <%= date_select f, :hepb_date, class: "form-control" %>
-    <%= error_tag f, :hepb_date %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :ref_status, class: "control-label" %>
-    <%= checkbox f, :ref_status, class: "checkbox" %>
-    <%= error_tag f, :ref_status %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :ref_date, class: "control-label" %>
-    <%= date_select f, :ref_date, class: "form-control" %>
-    <%= error_tag f, :ref_date %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :ref_to, class: "control-label" %>
-    <%= text_input f, :ref_to, class: "form-control" %>
-    <%= error_tag f, :ref_to %>
-  </div>
-
-  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    function ShowHideReferral(active) {
+      var cb1 = document.getElementById("cb1");
+      var cb2 = document.getElementById("cb2");
+      var referral = document.getElementById("referral");
+      if (cb1.checked == true || cb2.checked == true){
+        referral.style.display = "block";
+      } else {
+        referral.style.display = "none";
+      }
+    }
+  
+</script>
