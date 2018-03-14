@@ -1,68 +1,81 @@
-<h2>Show vaccinations</h2>
+</br><%= for patient <- @patients do %>
+        <%= if patient.patient_id == @vaccinations.patient_id do %>
+        <h2>Showing vaccination record for <%= patient.fname<>" "<>patient.lname %> </h2>
+        <table class="table table-user-information">
+        <tbody>
+          <tr>
+            <td>First Name:</td>
+            <td><%= patient.fname %></td>
+          </tr> 
+          <tr>
+            <td>Last Name:</td>
+            <td><%= patient.lname %></td>
+          </tr>
+        <%= end %> 
+<% end %>
 
-<ul>
+        <tr>
+          <td>Vaccination Brand:</td>
+          <td><%= @vaccinations.vacc_brand %></td>
+        </tr>
 
-  <li>
-    <strong>Patient:</strong>
-    <%= @vaccinations.patient_id %>
-  </li>
+        <tr>
+            <td>Patient has received first vaccination dose:</td>
+            <td><%= @vaccinations.dose1_status %></td>
+        </tr>
+        <%= if @vaccinations.dose1_status  == "true" do  %>
+          <tr>
+            <td>First dosage date:</td>
+            <td><%= @vaccinations.dose1_date %></td>
+          </tr>
+        <%= end %>
 
-  <li>
-    <strong>Vacc brand:</strong>
-    <%= @vaccinations.vacc_brand %>
-  </li>
+        <tr>
+            <td>Patient has received second vaccination dose:</td>
+            <td><%= @vaccinations.dose2_status %></td>
+        </tr>
+        <%= if @vaccinations.dose2_status  == "true" do  %>
+          <tr>
+            <td>Second dosage date:</td>
+            <td><%= @vaccinations.dose2_date %></td>
+          </tr>
+        <%= end %>
 
-  <li>
-    <strong>Dose1 status:</strong>
-    <%= @vaccinations.dose1_status %>
-  </li>
+        <tr>
+            <td>Patient has received third vaccination dose:</td>
+            <td><%= @vaccinations.dose3_status %></td>
+        </tr>
+        <%= if @vaccinations.dose3_status  == "true" do  %>
+          <tr>
+            <td>Third dosage date:</td>
+            <td><%= @vaccinations.dose3_date %></td>
+          </tr>
+        <%= end %>
 
-  <li>
-    <strong>Dose1 date:</strong>
-    <%= @vaccinations.dose1_date %>
-  </li>
+        <tr>
+            <td>Patient has had an anti-HBS titre:</td>
+            <td><%= @vaccinations.hbs_status %></td>
+        </tr>
+        <%= if @vaccinations.hbs_status  == "true" do  %>
+          <tr>
+            <td>Anti-HBS titre result:</td>
+            <td><%= @vaccinations.hbs_date %></td>
+          </tr>
+        <%= end %>
 
-  <li>
-    <strong>Dose2 status:</strong>
-    <%= @vaccinations.dose2_status %>
-  </li>
+        <tr>
+            <td>Patient requires revaccination:</td>
+            <td><%= @vaccinations.revacc_status %></td>
+        </tr>
+        <%= if @vaccinations.revacc_status  == "true" do  %>
+          <tr>
+            <td>Revaccination type:</td>
+            <td><%= @vaccinations.revacc_type %></td>
+          </tr>
+        <%= end %>
 
-  <li>
-    <strong>Dose2 date:</strong>
-    <%= @vaccinations.dose2_date %>
-  </li>
+      </tbody>
+    </table>
 
-  <li>
-    <strong>Dose3 status:</strong>
-    <%= @vaccinations.dose3_status %>
-  </li>
-
-  <li>
-    <strong>Dose3 date:</strong>
-    <%= @vaccinations.dose3_date %>
-  </li>
-
-  <li>
-    <strong>Hbs status:</strong>
-    <%= @vaccinations.hbs_status %>
-  </li>
-
-  <li>
-    <strong>Hbs result:</strong>
-    <%= @vaccinations.hbs_result %>
-  </li>
-
-  <li>
-    <strong>Revacc status:</strong>
-    <%= @vaccinations.revacc_status %>
-  </li>
-
-  <li>
-    <strong>Revacc type:</strong>
-    <%= @vaccinations.revacc_type %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: vaccinations_path(@conn, :edit, @vaccinations) %>
-<%= link "Back", to: vaccinations_path(@conn, :index) %>
+<%= link "Edit", to: vaccinations_path(@conn, :edit, @vaccinations), class: "btn btn-primary btn" %>  </br>
+<%= link "Back", to: vaccinations_path(@conn, :index), class: "btn btn-primary btn" %>

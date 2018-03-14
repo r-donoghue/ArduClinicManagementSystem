@@ -1,44 +1,36 @@
-<h2>Listing vaccs</h2>
+<h2>Vaccination records</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Patient</th>
-      <th>Vacc brand</th>
-      <th>Dose1 status</th>
-      <th>Dose1 date</th>
-      <th>Dose2 status</th>
-      <th>Dose2 date</th>
-      <th>Dose3 status</th>
-      <th>Dose3 date</th>
-      <th>Hbs status</th>
-      <th>Hbs result</th>
-      <th>Revacc status</th>
-      <th>Revacc type</th>
-
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Dose 1 given</th>
+      <th>Dose 2 given</th>
+      <th>Dose 3 given</th>
+      <th>Anti-HBS titre done</th>
+      <th>Revaccination required</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for vaccinations <- @vaccs do %>
     <tr>
-      <td><%= vaccinations.patient_id %></td>
-      <td><%= vaccinations.vacc_brand %></td>
+      <%= for patient <- @patients do %>
+        <%= if patient.patient_id == vaccinations.patient_id do %>
+          <td><%= patient.fname %></td>
+          <td><%= patient.lname %></td>
+        <%= end %> 
+      <% end %>
       <td><%= vaccinations.dose1_status %></td>
-      <td><%= vaccinations.dose1_date %></td>
       <td><%= vaccinations.dose2_status %></td>
-      <td><%= vaccinations.dose2_date %></td>
       <td><%= vaccinations.dose3_status %></td>
-      <td><%= vaccinations.dose3_date %></td>
       <td><%= vaccinations.hbs_status %></td>
-      <td><%= vaccinations.hbs_result %></td>
       <td><%= vaccinations.revacc_status %></td>
-      <td><%= vaccinations.revacc_type %></td>
 
       <td class="text-right">
-        <%= link "Show", to: vaccinations_path(@conn, :show, vaccinations), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: vaccinations_path(@conn, :edit, vaccinations), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: vaccinations_path(@conn, :delete, vaccinations), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Show", to: vaccinations_path(@conn, :show, vaccinations), class: "btn btn-primary" %>
+        <%= link "Edit", to: vaccinations_path(@conn, :edit, vaccinations), class: "btn btn-primary" %>
       </td>
     </tr>
 <% end %>

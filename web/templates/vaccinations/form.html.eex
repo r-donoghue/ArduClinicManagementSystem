@@ -5,79 +5,146 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= label f, :patient_id, class: "control-label" %>
-    <%= text_input f, :patient_id, class: "form-control" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Patient:</span>
+    <%= select f, :patient_id, @patients, class: "form-control" %>
     <%= error_tag f, :patient_id %>
-  </div>
+  </div></br>
 
-  <div class="form-group">
-    <%= label f, :vacc_brand, class: "control-label" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Vaccination brand:</span>
     <%= text_input f, :vacc_brand, class: "form-control" %>
     <%= error_tag f, :vacc_brand %>
+  </div></br>
+
+  <div class="panel panel-primary">
+  <div class="panel-heading">Vaccination Dose 1</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Has the patient had their first vaccination dose?</span>
+        <%= checkbox f, :dose1_status, id: "d1", class: "checkbox", onclick: "ShowHide(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :dose1_status %>
+      </div></br>
+      <div id="dd1" class="form-group" style="display: none">
+        <%= label f, "Vaccination date:", class: "control-label" %>
+        <%= date_select f, :dose1_date, class: "form-control" %>
+        <%= error_tag f, :dose1_date %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :dose1_status, class: "control-label" %>
-    <%= text_input f, :dose1_status, class: "form-control" %>
-    <%= error_tag f, :dose1_status %>
+  <div class="panel panel-primary">
+  <div class="panel-heading">Vaccination Dose 2</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Has the patient had their second vaccination dose?</span>
+        <%= checkbox f, :dose2_status, id: "d2", class: "checkbox", onclick: "ShowHide(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :dose2_status %>
+      </div></br>
+      <div id="dd2" class="form-group" style="display: none">
+        <%= label f, "Vaccination date:", class: "control-label" %>
+        <%= date_select f, :dose2_date, class: "form-control" %>
+        <%= error_tag f, :dose2_date %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :dose1_date, class: "control-label" %>
-    <%= text_input f, :dose1_date, class: "form-control" %>
-    <%= error_tag f, :dose1_date %>
+  <div class="panel panel-primary">
+  <div class="panel-heading">Vaccination Dose 3</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Has the patient had their third vaccination dose?</span>
+        <%= checkbox f, :dose3_status, id: "d3", class: "checkbox", onclick: "ShowHide(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :dose3_status %>
+      </div></br>
+      <div id="dd3" class="form-group" style="display: none">
+        <%= label f, "Vaccination date:", class: "control-label" %>
+        <%= date_select f, :dose3_date, class: "form-control" %>
+        <%= error_tag f, :dose3_date %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :dose2_status, class: "control-label" %>
-    <%= text_input f, :dose2_status, class: "form-control" %>
-    <%= error_tag f, :dose2_status %>
+  <div class="panel panel-primary">
+  <div class="panel-heading">Anti-HBS Titre</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Has the patient had an anti-HBS titre?</span>
+        <%= checkbox f, :hbs_status, id: "hbs", class: "checkbox", onclick: "ShowHide(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :hbs_status %>
+      </div></br>
+      <div id="hbsr" class="form-group" style="display: none">
+        <%= label f, "Result:", class: "control-label" %>
+        <%= text_input f, :hbs_result, class: "form-control" %>
+        <%= error_tag f, :hbs_result %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :dose2_date, class: "control-label" %>
-    <%= text_input f, :dose2_date, class: "form-control" %>
-    <%= error_tag f, :dose2_date %>
+  <div class="panel panel-primary">
+  <div class="panel-heading">Revaccination</div>
+    <div class="panel-body">
+      <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Does the patient require revaccination?</span>
+        <%= checkbox f, :revacc_status, id: "revacc", class: "checkbox", onclick: "ShowHide(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+        <%= error_tag f, :revacc_status %>
+      </div></br>
+      <div id="rd" class="form-group" style="display: none">
+        <%= label f, "Vaccination date:", class: "control-label" %>
+        <%= select f, :revacc_type, ["Booster","Full course"], class: "form-control" %>
+        <%= error_tag f, :revacc_type %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :dose3_status, class: "control-label" %>
-    <%= text_input f, :dose3_status, class: "form-control" %>
-    <%= error_tag f, :dose3_status %>
-  </div>
 
   <div class="form-group">
-    <%= label f, :dose3_date, class: "control-label" %>
-    <%= text_input f, :dose3_date, class: "form-control" %>
-    <%= error_tag f, :dose3_date %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hbs_status, class: "control-label" %>
-    <%= text_input f, :hbs_status, class: "form-control" %>
-    <%= error_tag f, :hbs_status %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :hbs_result, class: "control-label" %>
-    <%= text_input f, :hbs_result, class: "form-control" %>
-    <%= error_tag f, :hbs_result %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :revacc_status, class: "control-label" %>
-    <%= text_input f, :revacc_status, class: "form-control" %>
-    <%= error_tag f, :revacc_status %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :revacc_type, class: "control-label" %>
-    <%= text_input f, :revacc_type, class: "form-control" %>
-    <%= error_tag f, :revacc_type %>
-  </div>
-
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <%= submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    function ShowHide(active) {
+      var d1 = document.getElementById("d1");
+      var d2 = document.getElementById("d2");
+      var d3 = document.getElementById("d3");
+      var hbs = document.getElementById("hbs");
+      var revacc = document.getElementById("revacc");
+
+      var dd1 = document.getElementById("dd1");
+      var dd2 = document.getElementById("dd2");
+      var dd3 = document.getElementById("dd3");
+      var hbsr = document.getElementById("hbsr");
+      var rd = document.getElementById("rd");
+
+      if (d1.checked == true){
+        dd1.style.display = "block";
+      } else {
+        dd1.style.display = "none";
+      }
+
+      if (d2.checked == true){
+        dd2.style.display = "block";
+      } else {
+        dd2.style.display = "none";
+      }
+
+      if (d3.checked == true){
+        dd3.style.display = "block";
+      } else {
+        dd3.style.display = "none";
+      }
+
+      if (hbs.checked == true){
+        hbsr.style.display = "block";
+      } else {
+        hbsr.style.display = "none";
+      }
+
+      if (revacc.checked == true){
+        rd.style.display = "block";
+      } else {
+        rd.style.display = "none";
+      }
+    }
+</script>

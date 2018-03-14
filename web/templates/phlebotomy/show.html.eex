@@ -15,35 +15,35 @@
 <% end %>
 
         <tr>
-          <td>HIV Positive:</td>
+          <td>Patient is HIV positive:</td>
           <td><%= @phlebotomy.hiv_status %></td>
         </tr>
         <tr>
-          <td>HIV Date:</td>
+          <td>HIV test date:</td>
           <td><%= @phlebotomy.hiv_date %></td>
         </tr>
         <tr>
-          <td>Hepatitus C positive:</td>
+          <td>Patient is Hepatitus C positive:</td>
           <td><%= @phlebotomy.hepc_status %></td>
         </tr>
         <tr>
-          <td>Hepatitus C date:</td>
+          <td>Hepatitus C test date:</td>
           <td><%= @phlebotomy.hepc_date %></td>
         </tr>
         <tr>
-          <td>Hepatitus A positive:</td>
+          <td>Patient is Hepatitus A positive:</td>
           <td><%= @phlebotomy.hepa_status %></td>
         </tr>
         <tr>
-          <td>Hepatitus A date:</td>
+          <td>Hepatitus A test date:</td>
           <td><%= @phlebotomy.hepa_date %></td>
         </tr>
         <tr>
-          <td>Hepatitus B positive:</td>
+          <td>Patient is Hepatitus B positive:</td>
           <td><%= @phlebotomy.hepb_status %></td>
         </tr>
         <tr>
-          <td>Hepatitus B date:</td>
+          <td>Hepatitus B test date:</td>
           <td><%= @phlebotomy.hepb_date %></td>
         </tr>
 

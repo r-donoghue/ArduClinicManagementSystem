@@ -7,9 +7,6 @@ defmodule Cmsv1.PhlebotomyController do
   def index(conn, _params) do
     phleb = Repo.all(Phlebotomy)
     patients = Repo.all(Patient) 
-    #Enum.each  patients,  fn {k, v} ->
-    IO.inspect(patients)
-    #end 
     render(conn, "index.html", phleb: phleb, patients: patients)
   end
 
@@ -43,8 +40,9 @@ defmodule Cmsv1.PhlebotomyController do
 
   def edit(conn, %{"id" => id}) do
     phlebotomy = Repo.get!(Phlebotomy, id)
+    patients = Repo.all(Patient) |> Enum.map(&{&1.fname<>" "<>&1.lname, &1.patient_id}) |> Enum.into(%{}) 
     changeset = Phlebotomy.changeset(phlebotomy)
-    render(conn, "edit.html", phlebotomy: phlebotomy, changeset: changeset)
+    render(conn, "edit.html", phlebotomy: phlebotomy, changeset: changeset, patients: patients)
   end
 
   def update(conn, %{"id" => id, "phlebotomy" => phlebotomy_params}) do

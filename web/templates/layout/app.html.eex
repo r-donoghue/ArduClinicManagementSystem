@@ -37,7 +37,8 @@
               <button class="dropbtn">Clinical Measurements</button>
               <div class="dropdown-content">
                 <%=link("Phlebotomy", to: "/phleb", method: "get")%>
-            </div>
+                <%=link("Vaccination", to: "/vaccs", method: "get")%>
+              </div>
           </div>
         </nav>
       </header>
