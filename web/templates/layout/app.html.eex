@@ -23,14 +23,12 @@
                 <li class="links"><%=link("Patient", to: "/patients", method: "get")%></li>
               </ul>
               <div class="dropdown">
-              <button class="dropbtn">Clinic Options</button>
+              <button class="dropbtn">Clinic Entities</button>
               <div class="dropdown-content">
                 <%=link("Pharmacy", to: "/pharms", method: "get")%>
                 <%=link("General Practitoner", to: "/gps", method: "get")%>
                 <%=link("Clinic Doctor", to: "/cdoctors", method: "get")%>
-                <%=link("Patient gender options", to: "/genders", method: "get")%></li>
-                <%=link("Patient relationship options", to: "/relationships", method: "get")%></li>
-                <%=link("Inactivity reason options", to: "/reasons", method: "get")%></li>
+                
             </div>
           </div>
           <div class="dropdown">
@@ -38,6 +36,14 @@
               <div class="dropdown-content">
                 <%=link("Phlebotomy", to: "/phleb", method: "get")%>
                 <%=link("Vaccination", to: "/vaccs", method: "get")%>
+              </div>
+          </div>
+          <div class="dropdown">
+              <button class="dropbtn">Patient Details Config</button>
+              <div class="dropdown-content">
+                <%=link("Patient gender options", to: "/genders", method: "get")%></li>
+                <%=link("Patient relationship options", to: "/relationships", method: "get")%></li>
+                <%=link("Inactivity reason options", to: "/reasons", method: "get")%></li>
               </div>
           </div>
         </nav>
