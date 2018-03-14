@@ -1,0 +1,68 @@
+<h2>Show vaccinations</h2>
+
+<ul>
+
+  <li>
+    <strong>Patient:</strong>
+    <%= @vaccinations.patient_id %>
+  </li>
+
+  <li>
+    <strong>Vacc brand:</strong>
+    <%= @vaccinations.vacc_brand %>
+  </li>
+
+  <li>
+    <strong>Dose1 status:</strong>
+    <%= @vaccinations.dose1_status %>
+  </li>
+
+  <li>
+    <strong>Dose1 date:</strong>
+    <%= @vaccinations.dose1_date %>
+  </li>
+
+  <li>
+    <strong>Dose2 status:</strong>
+    <%= @vaccinations.dose2_status %>
+  </li>
+
+  <li>
+    <strong>Dose2 date:</strong>
+    <%= @vaccinations.dose2_date %>
+  </li>
+
+  <li>
+    <strong>Dose3 status:</strong>
+    <%= @vaccinations.dose3_status %>
+  </li>
+
+  <li>
+    <strong>Dose3 date:</strong>
+    <%= @vaccinations.dose3_date %>
+  </li>
+
+  <li>
+    <strong>Hbs status:</strong>
+    <%= @vaccinations.hbs_status %>
+  </li>
+
+  <li>
+    <strong>Hbs result:</strong>
+    <%= @vaccinations.hbs_result %>
+  </li>
+
+  <li>
+    <strong>Revacc status:</strong>
+    <%= @vaccinations.revacc_status %>
+  </li>
+
+  <li>
+    <strong>Revacc type:</strong>
+    <%= @vaccinations.revacc_type %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: vaccinations_path(@conn, :edit, @vaccinations) %>
+<%= link "Back", to: vaccinations_path(@conn, :index) %>

@@ -1,0 +1,65 @@
+defmodule Cmsv1.VaccinationsController do
+  use Cmsv1.Web, :controller
+
+  alias Cmsv1.Vaccinations
+
+  def index(conn, _params) do
+    vaccs = Repo.all(Vaccinations)
+    render(conn, "index.html", vaccs: vaccs)
+  end
+
+  def new(conn, _params) do
+    changeset = Vaccinations.changeset(%Vaccinations{})
+    render(conn, "new.html", changeset: changeset)
+  end
+
+  def create(conn, %{"vaccinations" => vaccinations_params}) do
+    changeset = Vaccinations.changeset(%Vaccinations{}, vaccinations_params)
+
+    case Repo.insert(changeset) do
+      {:ok, _vaccinations} ->
+        conn
+        |> put_flash(:info, "Vaccinations created successfully.")
+        |> redirect(to: vaccinations_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
+
+  def show(conn, %{"id" => id}) do
+    vaccinations = Repo.get!(Vaccinations, id)
+    render(conn, "show.html", vaccinations: vaccinations)
+  end
+
+  def edit(conn, %{"id" => id}) do
+    vaccinations = Repo.get!(Vaccinations, id)
+    changeset = Vaccinations.changeset(vaccinations)
+    render(conn, "edit.html", vaccinations: vaccinations, changeset: changeset)
+  end
+
+  def update(conn, %{"id" => id, "vaccinations" => vaccinations_params}) do
+    vaccinations = Repo.get!(Vaccinations, id)
+    changeset = Vaccinations.changeset(vaccinations, vaccinations_params)
+
+    case Repo.update(changeset) do
+      {:ok, vaccinations} ->
+        conn
+        |> put_flash(:info, "Vaccinations updated successfully.")
+        |> redirect(to: vaccinations_path(conn, :show, vaccinations))
+      {:error, changeset} ->
+        render(conn, "edit.html", vaccinations: vaccinations, changeset: changeset)
+    end
+  end
+
+  def delete(conn, %{"id" => id}) do
+    vaccinations = Repo.get!(Vaccinations, id)
+
+    # Here we use delete! (with a bang) because we expect
+    # it to always work (and if it does not, it will raise).
+    Repo.delete!(vaccinations)
+
+    conn
+    |> put_flash(:info, "Vaccinations deleted successfully.")
+    |> redirect(to: vaccinations_path(conn, :index))
+  end
+end

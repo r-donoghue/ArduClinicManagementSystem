@@ -1,0 +1,48 @@
+<h2>Listing vaccs</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Vacc brand</th>
+      <th>Dose1 status</th>
+      <th>Dose1 date</th>
+      <th>Dose2 status</th>
+      <th>Dose2 date</th>
+      <th>Dose3 status</th>
+      <th>Dose3 date</th>
+      <th>Hbs status</th>
+      <th>Hbs result</th>
+      <th>Revacc status</th>
+      <th>Revacc type</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for vaccinations <- @vaccs do %>
+    <tr>
+      <td><%= vaccinations.patient_id %></td>
+      <td><%= vaccinations.vacc_brand %></td>
+      <td><%= vaccinations.dose1_status %></td>
+      <td><%= vaccinations.dose1_date %></td>
+      <td><%= vaccinations.dose2_status %></td>
+      <td><%= vaccinations.dose2_date %></td>
+      <td><%= vaccinations.dose3_status %></td>
+      <td><%= vaccinations.dose3_date %></td>
+      <td><%= vaccinations.hbs_status %></td>
+      <td><%= vaccinations.hbs_result %></td>
+      <td><%= vaccinations.revacc_status %></td>
+      <td><%= vaccinations.revacc_type %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: vaccinations_path(@conn, :show, vaccinations), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: vaccinations_path(@conn, :edit, vaccinations), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: vaccinations_path(@conn, :delete, vaccinations), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New vaccinations", to: vaccinations_path(@conn, :new) %>
