@@ -1,0 +1,29 @@
+<h2>Patient</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ppsn</th>
+      <th>Date of birth</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for patient <- @patients do %>
+    <tr>
+      <td><%= patient.fname %></td>
+      <td><%= patient.ppsn %></td>
+      <td><%= patient.date_of_birth %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: patient_path(@conn, :show, patient), class: "btn btn-primary btn" %>
+        <%= link "Edit", to: patient_path(@conn, :edit, patient), class: "btn btn-primary btn" %>
+        </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New patient", to: patient_path(@conn, :new), class: "btn btn-primary btn" %>
