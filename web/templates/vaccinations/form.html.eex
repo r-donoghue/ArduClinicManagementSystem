@@ -90,10 +90,16 @@
         <%= error_tag f, :revacc_status %>
       </div></br>
       <div id="rd" class="form-group" style="display: none">
-        <%= label f, "Vaccination date:", class: "control-label" %>
+        <%= label f, "Revaccination date:", class: "control-label" %>
+        <%= date_select f, :revacc_date, class: "form-control" %>
+        <%= error_tag f, :revacc_date %>
+      </div><br>
+      <div id="rt" class="form-group" style="display: none">
+        <%= label f, "Revaccination type:", class: "control-label" %>
         <%= select f, :revacc_type, ["Booster","Full course"], class: "form-control" %>
         <%= error_tag f, :revacc_type %>
       </div>
+      
     </div>
   </div>
 
@@ -116,6 +122,7 @@
       var dd3 = document.getElementById("dd3");
       var hbsr = document.getElementById("hbsr");
       var rd = document.getElementById("rd");
+      var rt = document.getElementById("rt");
 
       if (d1.checked == true){
         dd1.style.display = "block";
@@ -143,8 +150,10 @@
 
       if (revacc.checked == true){
         rd.style.display = "block";
+        rt.style.display = "block";
       } else {
         rd.style.display = "none";
+        rt.style.display = "none";
       }
     }
 </script>
