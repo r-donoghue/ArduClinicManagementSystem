@@ -19,6 +19,7 @@
               <div class="navbar-header">
                 <a class="navbar-brand" href="#">Ardu Management System</a>
               </div>
+
               <ul class="nav navbar-nav  ">
                 <li class="links"><%=link("Patient", to: "/patients", method: "get")%></li>
               </ul>
@@ -44,6 +45,12 @@
                 <%=link("Patient gender options", to: "/genders", method: "get")%></li>
                 <%=link("Patient relationship options", to: "/relationships", method: "get")%></li>
                 <%=link("Inactivity reason options", to: "/reasons", method: "get")%></li>
+              </div>
+          </div>
+          <div class="dropdown">
+              <button class="dropbtn">Reports</button>
+              <div class="dropdown-content">
+                <%= link "Patient by GP", to: report_path(@conn, :index, %{"Type" => "PGP"})%>
               </div>
           </div>
         </nav>

@@ -1,0 +1,20 @@
+  <h2>Patients by GP</h2>
+  <div class="panel panel-primary">    
+    <%= for  {k, v}  <-  @gps do %>
+     <%= for gp <- @gp do %>
+        <%= if gp.gp_id == k do %>
+          <div class="panel-heading">GP Name: <%= gp.name %></div>
+        <% end %>
+      <% end %>
+     <div class="panel-body">
+      <h3>Patients: </h3>
+      <ul>
+      <%= for  {x, y}  <-  @patients  do %>
+        <%= if x == k do  %>
+          <li><%= y %></li>
+        <%= end %>
+      <%= end %>
+      </ul>
+      </div>
+    <%= end %>
+  </div>

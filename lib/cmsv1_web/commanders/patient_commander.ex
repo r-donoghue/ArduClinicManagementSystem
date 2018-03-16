@@ -14,8 +14,8 @@ defmodule Cmsv1.PatientCommander do
     pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.pharm_id, &1.name}) |> Enum.into(%{})  
     doctors = Repo.all(CDoctor) |> Enum.map(&{&1.cdoctor_id,&1.name}) |> Enum.into(%{})  
     gps = Repo.all(GP) |> Enum.map(&{&1.gp_id, &1.name}) |> Enum.into(%{})  
-    genders = Repo.all(GP) |> Enum.map(&{&1.gender, &1.gender}) |> Enum.into(%{})  
-    relations = Repo.all(GP) |> Enum.map(&{&1.relationship, &1.relationship}) |> Enum.into(%{})  
+    genders = Repo.all(Gender) |> Enum.map(&{&1.gender, &1.gender}) |> Enum.into(%{})  
+    relations = Repo.all(Relationship) |> Enum.map(&{&1.relationship, &1.relationship}) |> Enum.into(%{})  
 
     set_prop socket, "#patient_pharm_id" , options: pharms
     set_prop socket, "#patient_cdoctor_id" , options: doctors
