@@ -13,7 +13,7 @@ defmodule Cmsv1.Vaccinations do
     field :dose3_status, :boolean, default: false
     field :dose3_date, Ecto.Date
     field :hbs_status, :boolean, default: false
-    field :hbs_result, Ecto.Date
+    field :hbs_result, :string
     field :revacc_status, :boolean, default: false
     field :revacc_date, Ecto.Date
     field :revacc_type, :string
@@ -27,7 +27,7 @@ defmodule Cmsv1.Vaccinations do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:patient_id, :vacc_brand, :dose1_status, :dose1_date, :dose2_status, :dose2_date, :dose3_status, :dose3_date, :hbs_status, :hbs_result, :revacc_status, :revacc_type, :revacc_type])
+    |> cast(params, [:patient_id, :vacc_brand, :dose1_status, :dose1_date, :dose2_status, :dose2_date, :dose3_status, :dose3_date, :hbs_status, :hbs_result, :revacc_status, :revacc_type])
     |> validate_required([:vacc_brand, :dose1_status, :dose2_status, :dose3_status, :hbs_status, :revacc_status])
     |> foreign_key_constraint(:patient_id)
   end
