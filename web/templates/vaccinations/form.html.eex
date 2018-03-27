@@ -96,10 +96,29 @@
       </div><br>
       <div id="rt" class="form-group" style="display: none">
         <%= label f, "Revaccination type:", class: "control-label" %>
-        <%= select f, :revacc_type, ["Booster","Full course"], class: "form-control" %>
+        <%= select f, :revacc_type, ["Booster","Full course"], selected: "Full Course", prompt: "Choose a revaccination type", id: "rt2", class: "form-control" %>
         <%= error_tag f, :revacc_type %>
       </div>
       
+    </div>
+  </div>
+
+  <div id="bdetail" class="panel panel-primary" style="display: none">
+  <div class="panel-heading">Booster details</div>
+    <div class="panel-body">
+
+      <div id="bd" class="form-group" style="display: none">
+        <%= label f, "Booster date:", class: "control-label" %>
+        <%= date_select f, :booster_date, class: "form-control" %>
+        <%= error_tag f, :booster_date %>
+      </div>
+
+      <div class="input-group" style="display:none" id="bdose">
+        <label>Booster dose:</label>
+        <%= text_input f, :booster_dose, class: "form-control" %>
+        <%= error_tag f, :booster_dose %>
+      </div>
+
     </div>
   </div>
 
@@ -123,6 +142,7 @@
       var hbsr = document.getElementById("hbsr");
       var rd = document.getElementById("rd");
       var rt = document.getElementById("rt");
+      
 
       if (d1.checked == true){
         dd1.style.display = "block";
@@ -156,4 +176,32 @@
         rt.style.display = "none";
       }
     }
+    function CheckType(active) {
+      var rt = document.getElementById("rt");
+      var bd = document.getElementById("bd");
+      var bdose = document.getElementById("bdose");
+
+      var type = rt.options[rt.selectedIndex].text;
+      window.alert(type);
+    }
+    function show_selected() {
+      var bd = document.getElementById("bd");
+      var bdetail = document.getElementById("bdetail");
+      var bdose = document.getElementById("bdose");
+      var selector = document.getElementById('rt2');
+      var value = selector[selector.selectedIndex].value;
+
+      if (value == "Booster"){
+        bdetail.style.display = "block";
+        bd.style.display = "block";
+        bdose.style.display = "block";
+      }
+      else{
+        bdetail.style.display = "none";
+        bd.style.display = "none";
+        bdose.style.display = "none";
+      }
+    }
+
+document.getElementById('rt2').addEventListener('click', show_selected);;
 </script>
