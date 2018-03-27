@@ -41,11 +41,12 @@
               </div>
           </div>
           <div class="dropdown">
-              <button class="dropbtn">Patient Details Config</button>
+              <button class="dropbtn">Config</button>
               <div class="dropdown-content">
                 <%=link("Patient gender options", to: "/genders", method: "get")%></li>
                 <%=link("Patient relationship options", to: "/relationships", method: "get")%></li>
                 <%=link("Inactivity reason options", to: "/reasons", method: "get")%></li>
+                <%=link("Vaccination brands", to: "/vaccbrands", method: "get")%></li>
               </div>
           </div>
         </nav>

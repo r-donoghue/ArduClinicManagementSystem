@@ -1,0 +1,24 @@
+<h2>Listing vaccbrands</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Vaccination Brands</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for vacc_brand <- @vaccbrands do %>
+    <tr>
+      <td><%= vacc_brand.vaccbrand %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: vacc_brand_path(@conn, :show, vacc_brand), class: "btn btn-primary" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "Add Vaccination Brand", to: vacc_brand_path(@conn, :new), class: "btn btn-primary" %>

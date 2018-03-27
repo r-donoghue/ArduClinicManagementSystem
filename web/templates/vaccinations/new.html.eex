@@ -1,6 +1,6 @@
 <h2>Add vaccination record</h2>
 
-<%= render "form.html", changeset: @changeset, patients: @patients,
+<%= render "form.html", changeset: @changeset, patients: @patients, brands: @brands,
                         action: vaccinations_path(@conn, :create) %>
 
 <%= link "Back", to: vaccinations_path(@conn, :index) %>

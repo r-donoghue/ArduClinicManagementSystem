@@ -12,8 +12,8 @@
   </div></br>
 
   <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Vaccination brand:</span>
-    <%= text_input f, :vacc_brand, class: "form-control" %>
+    <span class="input-group-addon" id="basic-addon1">Vaccination Brand:</span>
+    <%= select f, :vacc_brand, @brands, prompt: "Choose a vaccination brand", class: "form-control" %>
     <%= error_tag f, :vacc_brand %>
   </div></br>
 

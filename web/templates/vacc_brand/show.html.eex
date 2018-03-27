@@ -1,0 +1,13 @@
+<h2>Show vacc brand</h2>
+
+<ul>
+
+  <li>
+    <strong>Vaccbrand:</strong>
+    <%= @vacc_brand.vaccbrand %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: vacc_brand_path(@conn, :edit, @vacc_brand) %>
+<%= link "Back", to: vacc_brand_path(@conn, :index) %>

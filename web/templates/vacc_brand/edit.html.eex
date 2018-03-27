@@ -1,0 +1,6 @@
+<h2>Edit vacc brand</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: vacc_brand_path(@conn, :update, @vacc_brand) %>
+
+<%= link "Back", to: vacc_brand_path(@conn, :index) %>

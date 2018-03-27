@@ -27,6 +27,7 @@ defmodule Cmsv1.Router do
     resources "/relationships", RelationshipController
     resources "/phleb", PhlebotomyController
     resources "/vaccs", VaccinationsController
+    resources "/vaccbrands", VaccBrandController
     
   end
 

@@ -13,6 +13,7 @@ defmodule Cmsv1.PatientController do
   alias Cmsv1.Inactivity
   alias Cmsv1.Gender
   alias Cmsv1.Relationship
+  alias Cmsv1.VaccBrand
 
   def index(conn, _params) do
     patients = Repo.all(Patient)
@@ -24,10 +25,11 @@ defmodule Cmsv1.PatientController do
     
     doctors = Repo.all(CDoctor) |> Enum.map(&{&1.name, &1.cdoctor_id}) |> Enum.into(%{}) 
     gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id}) |> Enum.into(%{}) 
-    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id}) |> Enum.into(%{}) 
+    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name<>" , "<>&1.address, &1.pharm_id}) |> Enum.into(%{}) 
     inactivity = Repo.all(Inactivity) |> Enum.map(&{&1.reason, &1.reason}) |> Enum.into(%{})
     relations = Repo.all(Relationship) |> Enum.map(&{&1.relationship, &1.relationship}) |> Enum.into(%{})
     genders = Repo.all(Gender) |> Enum.map(&{&1.gender, &1.gender}) |> Enum.into(%{})
+
 
 
     render(conn, "new.html", changeset: changeset, doctors: doctors, gps: gps, pharms: pharms, inactivity: inactivity, genders: genders, relations: relations)
@@ -46,6 +48,7 @@ defmodule Cmsv1.PatientController do
     inactivity = Repo.all(Inactivity) |> Enum.map(&{&1.reason, &1.reason}) |> Enum.into(%{}) 
     relations = Repo.all(Relationship) |> Enum.map(&{&1.relationship, &1.relationship}) |> Enum.into(%{})
     genders = Repo.all(Gender) |> Enum.map(&{&1.gender, &1.gender}) |> Enum.into(%{})
+
 
     case Repo.insert(changeset) do
       {:ok, _patient} ->
