@@ -105,11 +105,23 @@
           <td>Next of kin landline number:</td>
           <td><%= @patient.nok_landline_number %>
         </tr>
-       
+
+       <%= if @patient.transfer_status == false do %>
+          <tr>
+            <td>Patient is awaiting transfer:</td>
+            <td>No</td>
+          </tr>
+        <% else %>
+           <tr>
+            <td>Patient is awaiting transfer:</td>
+            <td>Yes</td>
+          </tr>
+        <% end %>
+
         <%= if @patient.active == false do %>
           <tr>
             <td>Patient is active:</td>
-            <td><%= Yes %>
+            <td>Yes</td>
           </tr>
           <tr>
             <td>Inactivity Reason:</td>

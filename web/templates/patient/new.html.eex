@@ -1,6 +1,6 @@
 <h2>Add patient</h2>
 
-<%= render "form.html", changeset: @changeset, brands: @brands, relations: @relations, genders: @genders, inactivity: @inactivity, doctors: @doctors, gps: @gps, pharms: @pharms,
+<%= render "form.html", changeset: @changeset, relations: @relations, genders: @genders, inactivity: @inactivity, doctors: @doctors, gps: @gps, pharms: @pharms,
                         action: patient_path(@conn, :create) %>
 
 <%= link "Back", to: patient_path(@conn, :index), class: "btn btn-default btn" %>

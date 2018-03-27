@@ -144,7 +144,12 @@
     <%= error_tag f, :landline_number %>
   </div></br>
 
-  
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Is the patient currently awating transfer?:</span>
+      <%= checkbox f, :transfer_status, class: "checkbox ", style: "width: 30px; height: 30px; margin-left: 20px;" %>
+      <%= error_tag f, :transfer_status %>
+  </div></br>
+
   <div class="input-group">
     <span class="input-group-addon" id="basic-addon1">Is the patient currently active?:</span>
       <%= checkbox f, :active, class: "checkbox ", id: "active", onclick: "ShowHideActive(this)", style: "width: 30px; height: 30px; margin-left: 20px;" %>
