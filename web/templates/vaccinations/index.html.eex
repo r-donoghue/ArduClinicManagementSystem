@@ -37,4 +37,4 @@
   </tbody>
 </table>
 
-<%= link "New vaccination record", to: vaccinations_path(@conn, :new), class: "btn btn-primary" %>
+<%= link "Add Vaccination Record", to: vaccinations_path(@conn, :new), class: "btn btn-primary" %>

@@ -1,5 +1,31 @@
-<%= link "Patient by GP", to: report_path(@conn, :index, %{"Type" => "PGP"}), class: "btn btn-primary btn" %>
-<%= link "Patient by Doctor", to: report_path(@conn, :index, %{"Type" => "PD"}), class: "btn btn-primary btn" %>
-<%= link "Patient by Age", to: report_path(@conn, :index, %{"Type" => "PAge"}), class: "btn btn-primary btn" %>
-<%= link "Patient by Activity", to: report_path(@conn, :index, %{"Type" => "PA"}), class: "btn btn-primary btn" %>
-<%= link "Patient by County", to: report_path(@conn, :index, %{"Type" => "PC"}), class: "btn btn-primary btn" %>
+  <br>
+  <h2>Patients</h2>
+  <div class="alert alert-info">
+      <p>To sort the table, click the heading of the column you want to sort by (for example, click "Pharmacy" to sort by pharmacy)</p>
+  </div>
+  <div class="">    
+    <table class="sortable table">
+      <thead>
+        <tr   >
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Patient Name</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">GP</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Clinic Doctor</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Pharmacy</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">County</button></th>
+        </tr>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for  p  <-  @patients  do %>
+        <tr>
+          <th style="text-align: center;" scope="row"><%= link p.fname<>" "<>p.lname, to: patient_path(@conn, :show, p), class: "" %><br></th>
+          <td style="text-align: center;" scope="row"><%= link p.gps.name, to: gp_path(@conn, :show, p.gp_id), class: "" %></td>
+          <td style="text-align: center;" scope="row"><%= link p.cdoctors.name, to: c_doctor_path(@conn, :show, p.cdoctor_id), class: "" %></td>
+          <td style="text-align: center;" scope="row"><%= link p.pharms.name, to: pharmacy_path(@conn, :show, p.pharm_id), class: "" %></td>
+          <td style="text-align: center;" scope="row"><%= p.county %></td>
+        </tr>
+        <%= end %>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

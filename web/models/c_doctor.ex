@@ -12,7 +12,7 @@ defmodule Cmsv1.CDoctor do
     field :fax, :string
     field :email, :string
     field :training_level, :string
-    has_many :patients, Cmsv1.Patient
+    has_one :patients, Cmsv1.Patient
 
     timestamps()
   end

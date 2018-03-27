@@ -22,6 +22,7 @@
 
               <ul class="nav navbar-nav  ">
                 <li class="links"><%=link("Patient", to: "/patients", method: "get")%></li>
+                <li class="links"><%= link "Report", to: report_path(@conn, :index)%></li>
               </ul>
               <div class="dropdown">
               <button class="dropbtn">Clinic Entities</button>
@@ -45,12 +46,6 @@
                 <%=link("Patient gender options", to: "/genders", method: "get")%></li>
                 <%=link("Patient relationship options", to: "/relationships", method: "get")%></li>
                 <%=link("Inactivity reason options", to: "/reasons", method: "get")%></li>
-              </div>
-          </div>
-          <div class="dropdown">
-              <button class="dropbtn">Reports</button>
-              <div class="dropdown-content">
-                <%= link "Patient by GP", to: report_path(@conn, :index, %{"Type" => "PGP"})%>
               </div>
           </div>
         </nav>

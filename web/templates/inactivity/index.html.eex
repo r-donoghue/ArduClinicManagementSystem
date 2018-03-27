@@ -20,4 +20,4 @@
   </tbody>
 </table>
 
-<%= link "New inactivity", to: inactivity_path(@conn, :new), class: "btn btn-primary btn" %>
+<%= link "Add inactivity reason", to: inactivity_path(@conn, :new), class: "btn btn-primary btn" %>

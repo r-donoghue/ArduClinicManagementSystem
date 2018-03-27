@@ -41,4 +41,4 @@
 
 
 
-<%= link "New phlebotomy", to: phlebotomy_path(@conn, :new) %>
+<%= link "Add Phlebotomy Record", to: phlebotomy_path(@conn, :new) %>

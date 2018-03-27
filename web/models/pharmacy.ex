@@ -13,7 +13,7 @@ defmodule Cmsv1.Pharmacy do
     field :email, :string
     field :contact_person, :string
     field :contact_person_number, :string
-    has_many :patients, Cmsv1.Patient
+    has_one :patients, Cmsv1.Patient
 
     timestamps()
   end

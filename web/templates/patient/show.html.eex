@@ -59,19 +59,25 @@
           <td>Gender:</td>
           <td><%= @patient.gender %>
         </tr>
-        <tr>
-          <td>Medical Card Present:</td>
-          <td><%= @patient.medical_card_present %>
-        </tr>
+        
         <%= if @patient.medical_card_present == true do %>
           <tr>
-          <td>Medical Card Number:</td>
-          <td><%= @patient.medical_card_number %>
-        </tr>
-        <tr>
-          <td>Medical Card Expiry Date:</td>
-          <td><%= @patient.medical_card_expiry %>
-        </tr>
+            <td>Medical Card Present:</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Medical Card Number:</td>
+            <td><%= @patient.medical_card_number %>
+          </tr>
+          <tr>
+            <td>Medical Card Expiry Date:</td>
+            <td><%= @patient.medical_card_expiry %>
+          </tr>
+        <% else %>
+          <tr>
+            <td>Medical Card Present:</td>
+            <td>No</td>
+          </tr>
         <% end %>
         
         
@@ -99,15 +105,21 @@
           <td>Next of kin landline number:</td>
           <td><%= @patient.nok_landline_number %>
         </tr>
-        <tr>
-          <td>Active Status:</td>
-          <td><%= @patient.active %>
-        </tr>
+       
         <%= if @patient.active == false do %>
-        <tr>
-          <td>Inactivity Reason:</td>
-          <td><%= @patient.active_details %>
-        </tr>
+          <tr>
+            <td>Patient is active:</td>
+            <td><%= Yes %>
+          </tr>
+          <tr>
+            <td>Inactivity Reason:</td>
+            <td><%= @patient.active_details %>
+          </tr>
+        <% else %>
+           <tr>
+            <td>Patient is active:</td>
+            <td>No</td>
+          </tr>
         <% end %>
       </tr>
     </tbody>

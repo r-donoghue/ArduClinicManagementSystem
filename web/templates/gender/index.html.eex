@@ -20,4 +20,4 @@
   </tbody>
 </table>
 
-<%= link "New gender", to: gender_path(@conn, :new) %>
+<%= link "Add gender", to: gender_path(@conn, :new) %>

@@ -26,4 +26,4 @@
   </tbody>
 </table>
 
-<%= link "New Clinic Doctor", to: c_doctor_path(@conn, :new), class: "btn btn-primary btn" %>
+<%= link "Add Clinic Doctor", to: c_doctor_path(@conn, :new), class: "btn btn-primary btn" %>

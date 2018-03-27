@@ -20,4 +20,4 @@
   </tbody>
 </table>
 
-<%= link "New relationship", to: relationship_path(@conn, :new) %>
+<%= link "Add Relationship", to: relationship_path(@conn, :new) %>

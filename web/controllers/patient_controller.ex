@@ -64,6 +64,15 @@ defmodule Cmsv1.PatientController do
     pharmacy = Repo.get!(Pharmacy, patient.pharm_id)
     render(conn, "show.html", patient: patient, doctor: doctor, gp: gp, pharmacy: pharmacy)
   end
+  def show(conn, %{"patient_id" => id, "Type" => t}) do
+    patient = Repo.get!(Patient, id)
+    doctor = Repo.get!(CDoctor, patient.cdoctor_id)
+    gp = Repo.get!(GP, patient.gp_id)
+    pharmacy = Repo.get!(Pharmacy, patient.pharm_id)
+    render(conn, "show.html", patient: patient, doctor: doctor, gp: gp, pharmacy: pharmacy)
+  end
+
+  #def index(conn, %{"Type" => t}) do
 
   def edit(conn, %{"id" => id}) do
     patient = Repo.get!(Patient, id)

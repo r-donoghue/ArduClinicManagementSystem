@@ -26,4 +26,4 @@
   </tbody>
 </table>
 
-<%= link "New General Practitioner", to: gp_path(@conn, :new), class: "btn btn-primary btn" %>
+<%= link "Add General Practitioner", to: gp_path(@conn, :new), class: "btn btn-primary btn" %>

@@ -26,4 +26,4 @@
   </tbody>
 </table>
 
-<%= link "New pharmacy", to: pharmacy_path(@conn, :new), class: "btn btn-primary btn"  %>
+<%= link "Add Pharmacy", to: pharmacy_path(@conn, :new), class: "btn btn-primary btn"  %>
