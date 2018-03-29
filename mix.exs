@@ -19,7 +19,7 @@ defmodule Cmsv1.Mixfile do
   def application do
     [mod: {Cmsv1, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :drab]]
+                    :phoenix_ecto, :postgrex, :drab, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +39,8 @@ defmodule Cmsv1.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:calendar, "~> 0.17.2"},
-     {:drab, "~> 0.7"}
+     {:drab, "~> 0.7"},
+     {:comeonin, "~> 2.0"}
     ]
   end
 
