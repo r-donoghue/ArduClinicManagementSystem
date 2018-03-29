@@ -1,11 +1,15 @@
 <h2>Patient</h2>
 
-<table class="table">
+<div class="alert alert-info">
+      <p>To sort the table, click the heading of the column you want to sort by. Click to cycle through ascending and descending order.</p>
+  </div>
+
+<table class="sortable table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Ppsn</th>
-      <th>Date of birth</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Name</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Ppsn</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Date of birth</th>
 
       <th></th>
     </tr>
@@ -13,9 +17,9 @@
   <tbody>
 <%= for patient <- @patients do %>
     <tr>
-      <td><%= patient.fname %></td>
-      <td><%= patient.ppsn %></td>
-      <td><%= patient.date_of_birth %></td>
+      <td style="text-align: center;"><%= patient.fname<>" "<>patient.lname %></td>
+      <td style="text-align: center;"><%= patient.ppsn %></td>
+      <td style="text-align: center;"><%= patient.date_of_birth %></td>
 
       <td class="text-right">
         <%= link "Show", to: patient_path(@conn, :show, patient), class: "btn btn-primary btn" %>
@@ -27,3 +31,4 @@
 </table>
 
 <%= link "Add Patient", to: patient_path(@conn, :new), class: "btn btn-primary btn" %>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

@@ -1,16 +1,12 @@
 <h2>Vaccination records</h2>
 
-<table class="table">
+<table class=" sortable table">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Dose 1 given</th>
-      <th>Dose 2 given</th>
-      <th>Dose 3 given</th>
-      <th>Anti-HBS titre done</th>
-      <th>Revaccination required</th>
-      <th></th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Name</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Dose 1 given</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Dose 2 given</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Dose 3 given</th>
     </tr>
   </thead>
   <tbody>
@@ -18,15 +14,25 @@
     <tr>
       <%= for patient <- @patients do %>
         <%= if patient.patient_id == vaccinations.patient_id do %>
-          <td><%= patient.fname %></td>
-          <td><%= patient.lname %></td>
+          <td style="text-align: center;"><%= patient.fname<>" "<>patient.lname %></td>
         <%= end %> 
       <% end %>
-      <td><%= vaccinations.dose1_status %></td>
-      <td><%= vaccinations.dose2_status %></td>
-      <td><%= vaccinations.dose3_status %></td>
-      <td><%= vaccinations.hbs_status %></td>
-      <td><%= vaccinations.revacc_status %></td>
+      
+      <%= if vaccinations.dose1_status == true do %>
+        <td style="text-align: center; color: orange">Yes</td>
+      <%= else %>
+        <td style="text-align: center; color: blue">No</td>
+      <%= end %>
+      <%= if vaccinations.dose2_status == true do %>
+        <td style="text-align: center; color: orange">Yes</td>
+      <%= else %>
+        <td style="text-align: center; color: blue">No</td>
+      <%= end %>
+      <%= if vaccinations.dose3_status == true do %>
+        <td style="text-align: center; color: orange">Yes</td>
+      <%= else %>
+        <td style="text-align: center; color: blue">No</td>
+      <%= end %>
 
       <td class="text-right">
         <%= link "Show", to: vaccinations_path(@conn, :show, vaccinations), class: "btn btn-primary" %>
@@ -38,3 +44,4 @@
 </table>
 
 <%= link "Add Vaccination Record", to: vaccinations_path(@conn, :new), class: "btn btn-primary" %>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

@@ -1,11 +1,15 @@
 <h2>Clinic Doctor</h2>
 
-<table class="table">
+<div class="alert alert-info">
+      <p>To sort the table, click the heading of the column you want to sort by. Click to cycle through ascending and descending order.</p>
+  </div>
+
+<table class="sortable table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Training level</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Name</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Address</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Training level</th>
 
       <th></th>
     </tr>
@@ -13,9 +17,9 @@
   <tbody>
 <%= for c_doctor <- @cdoctors do %>
     <tr>
-      <td><%= c_doctor.name %></td>
-      <td><%= c_doctor.address %></td>
-      <td><%= c_doctor.training_level %></td>
+       <td style="text-align: center;"><%= c_doctor.name %></td>
+       <td style="text-align: center;"><%= c_doctor.address %></td>
+       <td style="text-align: center;"><%= c_doctor.training_level %></td>
 
       <td class="text-right">
         <%= link "Show", to: c_doctor_path(@conn, :show, c_doctor), class: "btn btn-primary btn" %>
@@ -27,3 +31,5 @@
 </table>
 
 <%= link "Add Clinic Doctor", to: c_doctor_path(@conn, :new), class: "btn btn-primary btn" %>
+
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

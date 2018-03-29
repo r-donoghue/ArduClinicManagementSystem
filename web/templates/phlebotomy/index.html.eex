@@ -1,14 +1,13 @@
 <h2>Phlebotomy records</h2>
 
-<table class="table">
+<table class="sortable table">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>HIV postive</th>
-      <th>HEP C positive</th>
-      <th>HEP A positive</th>
-      <th>HEP B positive</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">Name</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">HIV postive</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">HEP C positive</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">HEP A positive</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">HEP B positive</th>
 
       <th></th>
     </tr>
@@ -20,15 +19,30 @@
     <tr>
       <%= for patient <- @patients do %>
         <%= if patient.patient_id == phlebotomy.patient_id do %>
-          <td><%= patient.fname %></td>
-          <td><%= patient.lname %></td>
+          <td style="text-align: center;" scope="row"><%= patient.fname<>" "<>patient.lname %></td>
         <%= end %> 
       <% end %>
 
-      <td><%= phlebotomy.hiv_status %></td>
-      <td><%= phlebotomy.hepc_status %></td>
-      <td><%= phlebotomy.hepa_status %></td>
-      <td><%= phlebotomy.hepb_status %></td>
+      <%= if phlebotomy.hiv_status == true do %>
+        <td style="text-align: center; color: orange">Yes</td>
+      <%= else %>
+        <td style="text-align: center; color: blue">No</td>
+      <%= end %>
+      <%= if phlebotomy.hepc_status == true do %>
+        <td style="text-align: center; color: orange">Yes</td>
+      <%= else %>
+        <td style="text-align: center; color: blue">No</td>
+      <%= end %>
+      <%= if phlebotomy.hepa_status == true do %>
+        <td style="text-align: center; color: orange">Yes</td>
+      <%= else %>
+        <td style="text-align: center; color: blue">No</td>
+      <%= end %>
+      <%= if phlebotomy.hepb_status == true do %>
+        <td style="text-align: center; color: orange">Yes</td>
+      <%= else %>
+        <td style="text-align: center; color: blue">No</td>
+      <%= end %>
 
       <td class="text-right">
         <%= link "Show", to: phlebotomy_path(@conn, :show, phlebotomy), class: "btn btn-primary" %>
@@ -42,3 +56,5 @@
 
 
 <%= link "Add Phlebotomy Record", to: phlebotomy_path(@conn, :new) %>
+
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
