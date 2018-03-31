@@ -38,7 +38,7 @@ defmodule Cmsv1.UserController do
         else
         conn
         |> put_flash(:error, "You must be logged in to access that page")
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: session_path(conn, :new))
         |> halt()
         end
         end

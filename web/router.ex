@@ -16,7 +16,7 @@ defmodule Cmsv1.Router do
 
   scope "/", Cmsv1 do
     pipe_through :browser # Use the default browser stack
-    get "/", PageController, :index
+    get "/", PatientController, :index
     get "/patients", PatientController, :index
     get "/Reports", ReportController, :index
     resources "/pharms", PharmacyController

@@ -36,3 +36,6 @@ Cmsv1.Repo.insert(relation)
 relation = %Cmsv1.Gender{gender: "Father"}
 Cmsv1.Repo.insert(relation)
 
+user = %Cmsv1.User{name: "Ryan Donoghue", username: "rdonoghue", password_hash: "$2b$12$IF4JpsOq3bBg0MNZyohSFu0DkBsJMa.eNcnoLU2NeCuBmtXuFbTP2"}
+Cmsv1.Repo.insert(user)
+

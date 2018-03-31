@@ -22,6 +22,6 @@ defmodule Cmsv1.SessionController do
     def delete(conn, _) do
         conn
         |> Cmsv1.Auth.logout()
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: session_path(conn, :new))
         end
 end
