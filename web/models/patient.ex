@@ -30,6 +30,7 @@ defmodule Cmsv1.Patient do
     field :active_details, :string
     field :age, :integer
     field :transfer_status, :boolean, default: false
+    belongs_to :clinics, Cmsv1.Clinic, foreign_key: :clinic_id, type: :binary_id, references: :clinic_id
     belongs_to :gps, Cmsv1.GP, foreign_key: :gp_id, type: :binary_id, references: :gp_id
     belongs_to :cdoctors, Cmsv1.CDoctor, foreign_key: :cdoctor_id, type: :binary_id, references: :cdoctor_id
     belongs_to :pharms, Cmsv1.Pharmacy, foreign_key: :pharm_id, type: :binary_id, references: :pharm_id
@@ -51,5 +52,6 @@ defmodule Cmsv1.Patient do
     |> foreign_key_constraint(:gp_id)
     |> foreign_key_constraint(:pharm_id)
     |> foreign_key_constraint(:cdoctor_id)
+    |> foreign_key_constraint(:clinic_id)
   end
 end

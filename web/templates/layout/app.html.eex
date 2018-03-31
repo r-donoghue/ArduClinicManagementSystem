@@ -22,6 +22,7 @@
 
               <ul class="nav navbar-nav  ">
                 <li class="links"><%=link("Patient", to: "/patients", method: "get")%></li>
+                <li class="links"><%=link("Clinic Management", to: "/clinics", method: "get")%></li>
                 <li class="links"><%= link "Report", to: report_path(@conn, :index)%></li>
               </ul>
               <div class="dropdown">

@@ -16,6 +16,7 @@ defmodule Cmsv1.Phlebotomy do
     field :ref_status, :boolean, default: false
     field :ref_date, Ecto.Date
     field :ref_to, :string
+    belongs_to :clinics, Cmsv1.Clinic, foreign_key: :clinic_id, type: :binary_id, references: :clinic_id
     belongs_to :patients, Cmsv1.Patient, foreign_key: :patient_id, type: :binary_id, references: :patient_id
 
     timestamps()
@@ -29,5 +30,6 @@ defmodule Cmsv1.Phlebotomy do
     |> cast(params, [:patient_id, :hiv_status, :hiv_date, :hepc_status, :hepc_date, :hepa_status, :hepa_date, :hepb_status, :hepb_date, :ref_status, :ref_date, :ref_to])
     |> validate_required([:hiv_status, :hiv_date, :hepc_status, :hepc_date, :hepa_status, :hepa_date, :hepb_status, :hepb_date])
     |> foreign_key_constraint(:patient_id)
+    |> foreign_key_constraint(:clinic_id)
   end
 end
