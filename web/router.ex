@@ -7,6 +7,7 @@ defmodule Cmsv1.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Cmsv1.Auth, repo: Rumbl.Repo
   end
 
   pipeline :api do
@@ -15,8 +16,8 @@ defmodule Cmsv1.Router do
 
   scope "/", Cmsv1 do
     pipe_through :browser # Use the default browser stack
-
-    get "/", PatientController, :index
+    get "/", PageController, :index
+    get "/patients", PatientController, :index
     get "/Reports", ReportController, :index
     resources "/pharms", PharmacyController
     resources "/gps", GPController
@@ -29,6 +30,8 @@ defmodule Cmsv1.Router do
     resources "/vaccs", VaccinationsController
     resources "/vaccbrands", VaccBrandController
     resources "/clinics", ClinicController
+    resources "/users", UserController, only: [:index, :show, :new, :create]
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
     
   end
 

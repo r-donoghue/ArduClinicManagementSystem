@@ -12,9 +12,12 @@
   </head>
 
   <body class="bg">
+
   <div class="container-fluid full">
+  
     <header class="header">
           <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+
             <div class="container-fluid">
               <div class="navbar-header">
                 <a class="navbar-brand" href="#">Ardu Management System</a>
@@ -25,6 +28,7 @@
                 <li class="links"><%=link("Clinic Management", to: "/clinics", method: "get")%></li>
                 <li class="links"><%= link "Report", to: report_path(@conn, :index)%></li>
               </ul>
+
               <div class="dropdown">
               <button class="dropbtn">Clinic Entities</button>
               <div class="dropdown-content">
@@ -50,11 +54,29 @@
                 <%=link("Vaccination brands", to: "/vaccbrands", method: "get")%></li>
               </div>
           </div>
+          
         </nav>
       </header>
+
+      
     </div>
-    <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-    <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+    <ol class="breadcrumb text-right">
+      <%= if @current_user do %>
+        <li>
+
+          Currently logged in: <%= @current_user.username %>
+        </li>
+        <li>
+          <%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete" %>
+        </li>
+      <% else %>
+        <li>No user currently logged in</li>
+        <li><%= link "Log in", to: session_path(@conn, :new) %></li>
+      <% end %>
+    </ol>
+    <h4 class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></h4>
+    <h4 class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></h4>
 
     <div class="px-4">
       <div class="panel panel-default">
