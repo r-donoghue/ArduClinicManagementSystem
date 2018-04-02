@@ -47,11 +47,13 @@ defmodule Cmsv1.Patient do
   def changeset(struct, params \\ %{}) do
 
     struct
-    |> cast(params, [:ph_number, :fname, :lname, :street, :towncity, :county, :eircode, :ppsn, :date_of_birth, :gender, :medical_card_present, :medical_card_number, :medical_card_expiry, :mobile_number, :landline_number, :nok_rel, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :active_details, :cdoctor_id, :gp_id, :pharm_id, :transfer_status])
+    |> cast(params, [:ph_number, :fname, :lname, :street, :towncity, :county, :eircode, :ppsn, :date_of_birth, :gender, :medical_card_present, :medical_card_number, :medical_card_expiry, :mobile_number, :landline_number, :nok_rel, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :active_details, :cdoctor_id, :gp_id, :pharm_id, :transfer_status, :clinic_id])
     |> validate_required([:ph_number, :fname, :lname, :ppsn, :date_of_birth, :gender, :medical_card_present, :mobile_number, :landline_number, :nok_rel, :nok_name, :nok_address, :nok_mobile_number, :nok_landline_number, :active, :cdoctor_id, :gp_id, :pharm_id])
     |> foreign_key_constraint(:gp_id)
     |> foreign_key_constraint(:pharm_id)
     |> foreign_key_constraint(:cdoctor_id)
     |> foreign_key_constraint(:clinic_id)
+
   end
+
 end

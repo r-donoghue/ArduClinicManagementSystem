@@ -1,5 +1,4 @@
 <h2>Patient</h2>
-
 <div class="alert alert-info">
       <p>To sort the table, click the heading of the column you want to sort by. Click to cycle through ascending and descending order.</p>
   </div>
@@ -16,6 +15,7 @@
   </thead>
   <tbody>
 <%= for patient <- @patients do %>
+  <%= if @current_user.clinic_id == patient.clinic_id do %>
     <tr>
       <td style="text-align: center;"><%= patient.fname<>" "<>patient.lname %></td>
       <td style="text-align: center;"><%= patient.ppsn %></td>
@@ -26,6 +26,7 @@
         <%= link "Edit", to: patient_path(@conn, :edit, patient), class: "btn btn-primary btn" %>
         </td>
     </tr>
+  <% end %>
 <% end %>
   </tbody>
 </table>

@@ -20,6 +20,7 @@ defmodule Cmsv1.PatientController do
   def index(conn, _params) do
     patients = Repo.all(Patient)
     render(conn, "index.html", patients: patients)
+
   end
 
   def new(conn, _params) do
@@ -43,6 +44,8 @@ defmodule Cmsv1.PatientController do
 
     dob = AgeCalc.age(get_change(changeset, :date_of_birth))
     changeset = change(changeset, %{age: dob})
+    clinic = get_session(conn, :clinic_id)
+    changeset = change(changeset, %{clinic_id: clinic})
 
     doctors = Repo.all(CDoctor) |> Enum.map(&{&1.name, &1.cdoctor_id}) |> Enum.into(%{}) 
     gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id}) |> Enum.into(%{}) 
