@@ -27,6 +27,7 @@
                 <li class="links"><%=link("Patient", to: "/patients", method: "get")%></li>
                 <li class="links"><%=link("Clinic Management", to: "/clinics", method: "get")%></li>
                 <li class="links"><%= link "Report", to: report_path(@conn, :index)%></li>
+                <li class="links"><%= link "Users", to: user_path(@conn, :index)%></li>
               </ul>
 
               <div class="dropdown">

@@ -1,6 +1,8 @@
 defmodule Cmsv1.VaccinationsController do
   use Cmsv1.Web, :controller
 
+  import Ecto.Changeset
+  
   alias Cmsv1.Vaccinations
   alias Cmsv1.Patient
   alias Cmsv1.VaccBrand
@@ -22,6 +24,10 @@ defmodule Cmsv1.VaccinationsController do
     changeset = Vaccinations.changeset(%Vaccinations{}, vaccinations_params)
     patients = Repo.all(Patient) |> Enum.map(&{&1.fname, &1.patient_id}) |> Enum.into(%{}) 
     brands = Repo.all(VaccBrand) |> Enum.map(&{&1.vaccbrand, &1.vaccbrand}) |> Enum.into(%{})
+
+    clinic = get_session(conn, :clinic_id)
+    changeset = change(changeset, %{clinic_id: clinic})
+
     case Repo.insert(changeset) do
       {:ok, _vaccinations} ->
         conn

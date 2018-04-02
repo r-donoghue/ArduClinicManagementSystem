@@ -11,6 +11,7 @@
   </thead>
   <tbody>
 <%= for vaccinations <- @vaccs do %>
+<%= if @current_user.clinic_id == vaccinations.clinic_id do %>
     <tr>
       <%= for patient <- @patients do %>
         <%= if patient.patient_id == vaccinations.patient_id do %>
@@ -39,6 +40,7 @@
         <%= link "Edit", to: vaccinations_path(@conn, :edit, vaccinations), class: "btn btn-primary" %>
       </td>
     </tr>
+  <% end %>
 <% end %>
   </tbody>
 </table>

@@ -1,6 +1,8 @@
 defmodule Cmsv1.PhlebotomyController do
   use Cmsv1.Web, :controller
 
+  import Ecto.Changeset
+
   alias Cmsv1.Phlebotomy
   alias Cmsv1.Patient
 
@@ -21,6 +23,9 @@ defmodule Cmsv1.PhlebotomyController do
     changeset = Phlebotomy.changeset(%Phlebotomy{}, phlebotomy_params)
 
     patients = Repo.all(Patient) |> Enum.map(&{&1.fname, &1.patient_id}) |> Enum.into(%{}) 
+
+    clinic = get_session(conn, :clinic_id)
+    changeset = change(changeset, %{clinic_id: clinic})
 
     case Repo.insert(changeset) do
       {:ok, _phlebotomy} ->

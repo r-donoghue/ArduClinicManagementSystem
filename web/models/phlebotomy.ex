@@ -27,7 +27,7 @@ defmodule Cmsv1.Phlebotomy do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:patient_id, :hiv_status, :hiv_date, :hepc_status, :hepc_date, :hepa_status, :hepa_date, :hepb_status, :hepb_date, :ref_status, :ref_date, :ref_to])
+    |> cast(params, [:patient_id, :hiv_status, :hiv_date, :hepc_status, :hepc_date, :hepa_status, :hepa_date, :hepb_status, :hepb_date, :ref_status, :ref_date, :ref_to, :clinic_id])
     |> validate_required([:hiv_status, :hiv_date, :hepc_status, :hepc_date, :hepa_status, :hepa_date, :hepb_status, :hepb_date])
     |> foreign_key_constraint(:patient_id)
     |> foreign_key_constraint(:clinic_id)

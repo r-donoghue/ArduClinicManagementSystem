@@ -30,7 +30,7 @@ defmodule Cmsv1.Vaccinations do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:patient_id, :vacc_brand, :dose1_status, :dose1_date, :dose2_status, :dose2_date, :dose3_status, :dose3_date, :hbs_status, :hbs_result, :revacc_status, :revacc_type, :booster_date, :booster_dose])
+    |> cast(params, [:patient_id, :vacc_brand, :dose1_status, :dose1_date, :dose2_status, :dose2_date, :dose3_status, :dose3_date, :hbs_status, :hbs_result, :revacc_status, :revacc_type, :booster_date, :booster_dose, :clinic_id])
     |> validate_required([:vacc_brand, :dose1_status, :dose2_status, :dose3_status, :hbs_status, :revacc_status])
     |> foreign_key_constraint(:patient_id)
     |> foreign_key_constraint(:clinic_id)

@@ -15,40 +15,43 @@
   <tbody>
   
 <%= for phlebotomy <- @phleb do %>
-    
+   <%= if @current_user.clinic_id == phlebotomy.clinic_id do %> 
     <tr>
       <%= for patient <- @patients do %>
-        <%= if patient.patient_id == phlebotomy.patient_id do %>
-          <td style="text-align: center;" scope="row"><%= patient.fname<>" "<>patient.lname %></td>
-        <%= end %> 
-      <% end %>
+        
+          <%= if patient.patient_id == phlebotomy.patient_id do %>
+            <td style="text-align: center;" scope="row"><%= patient.fname<>" "<>patient.lname %></td>
+          <%= end %> 
+        <% end %>
 
-      <%= if phlebotomy.hiv_status == true do %>
-        <td style="text-align: center; color: orange">Yes</td>
-      <%= else %>
-        <td style="text-align: center; color: blue">No</td>
-      <%= end %>
-      <%= if phlebotomy.hepc_status == true do %>
-        <td style="text-align: center; color: orange">Yes</td>
-      <%= else %>
-        <td style="text-align: center; color: blue">No</td>
-      <%= end %>
-      <%= if phlebotomy.hepa_status == true do %>
-        <td style="text-align: center; color: orange">Yes</td>
-      <%= else %>
-        <td style="text-align: center; color: blue">No</td>
-      <%= end %>
-      <%= if phlebotomy.hepb_status == true do %>
-        <td style="text-align: center; color: orange">Yes</td>
-      <%= else %>
-        <td style="text-align: center; color: blue">No</td>
-      <%= end %>
+        <%= if phlebotomy.hiv_status == true do %>
+          <td style="text-align: center; color: orange">Yes</td>
+        <%= else %>
+          <td style="text-align: center; color: blue">No</td>
+        <%= end %>
+        <%= if phlebotomy.hepc_status == true do %>
+          <td style="text-align: center; color: orange">Yes</td>
+        <%= else %>
+          <td style="text-align: center; color: blue">No</td>
+        <%= end %>
+        <%= if phlebotomy.hepa_status == true do %>
+          <td style="text-align: center; color: orange">Yes</td>
+        <%= else %>
+          <td style="text-align: center; color: blue">No</td>
+        <%= end %>
+        <%= if phlebotomy.hepb_status == true do %>
+          <td style="text-align: center; color: orange">Yes</td>
+        <%= else %>
+          <td style="text-align: center; color: blue">No</td>
+        <%= end %>
 
-      <td class="text-right">
-        <%= link "Show", to: phlebotomy_path(@conn, :show, phlebotomy), class: "btn btn-primary" %>
-        <%= link "Edit", to: phlebotomy_path(@conn, :edit, phlebotomy), class: "btn btn-primary" %>
-      </td>
-    </tr>
+        <td class="text-right">
+          <%= link "Show", to: phlebotomy_path(@conn, :show, phlebotomy), class: "btn btn-primary" %>
+          <%= link "Edit", to: phlebotomy_path(@conn, :edit, phlebotomy), class: "btn btn-primary" %>
+        </td>
+      </tr>
+
+    <% end %>
 <% end %>
   </tbody>
 </table>
