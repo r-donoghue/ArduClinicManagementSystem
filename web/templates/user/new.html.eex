@@ -14,5 +14,15 @@
     <div class="form-group">
     <%= password_input f, :password, placeholder: "Password", class: "form-control" %>
     </div>
+
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Patient's GP:</span>
+    <%= select f, :clinic_id, @clinics, prompt: "Choose a Clinic", class: "form-control" %>
+    <%= error_tag f, :clinic_id %>
+  </div></br>
+
+  <div class="form-group">
+    <%= select f, :level, ["Standard", "Admin", "Senior Admin"], class: "form-control" %>
+    </div>
     <%= submit "Create User", class: "btn btn-primary" %>
 <% end %>

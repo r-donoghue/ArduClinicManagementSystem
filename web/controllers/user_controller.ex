@@ -1,9 +1,10 @@
 defmodule Cmsv1.UserController do
     use Cmsv1.Web, :controller
 
-    plug :authenticate when action in [:index, :show]
+    #plug :authenticate when action in [:index, :show]
 
     alias Cmsv1.User
+    alias Cmsv1.Clinic
 
     def index(conn, _params) do
         users = Repo.all(Cmsv1.User)
@@ -17,7 +18,8 @@ defmodule Cmsv1.UserController do
     
     def new(conn, _params) do
         changeset = User.changeset(%User{})
-        render conn, "new.html", changeset: changeset
+        clinics = Repo.all(Clinic) |> Enum.map(&{&1.name, &1.clinic_id}) |> Enum.into(%{}) 
+        render conn, "new.html", changeset: changeset, clinics: clinics
     end
 
     def create(conn, %{"user" => user_params}) do
