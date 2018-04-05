@@ -10,9 +10,6 @@ defmodule Cmsv1.VaccinationsController do
   def index(conn, _params) do
     vaccs = Repo.all(Vaccinations)
     patients = Repo.all(Patient) 
-
-    #{{y, _, _}, _} = Ecto.DateTime.from_erl(:erlang.localtime)
-    IO.inspect(String.slice(to_string(Ecto.DateTime.from_erl(:erlang.localtime)), 0..3))
     render(conn, "index.html", vaccs: vaccs, patients: patients)
   end
 
@@ -31,11 +28,19 @@ defmodule Cmsv1.VaccinationsController do
     clinic = get_session(conn, :clinic_id)
     changeset = change(changeset, %{clinic_id: clinic})
 
+
     case Repo.insert(changeset) do
       {:ok, _vaccinations} ->
-        conn
-        |> put_flash(:info, "Vaccinations created successfully.")
-        |> redirect(to: vaccinations_path(conn, :index))
+        if (get_field(changeset, :revacc_type) == "Full course") do 
+          conn
+          |> put_flash(:info, "Vaccinations created successfully. (Full course selected, please enter a new vaccination record)")
+          |> redirect(to: vaccinations_path(conn, :new))
+        else
+          conn
+          |> put_flash(:info, "Vaccinations created successfully.")
+          |> redirect(to: vaccinations_path(conn, :index))
+        end
+       
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset, patients: patients, brands: brands)
     end
@@ -71,11 +76,7 @@ defmodule Cmsv1.VaccinationsController do
 
   def delete(conn, %{"id" => id}) do
     vaccinations = Repo.get!(Vaccinations, id)
-
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
     Repo.delete!(vaccinations)
-
     conn
     |> put_flash(:info, "Vaccinations deleted successfully.")
     |> redirect(to: vaccinations_path(conn, :index))
@@ -85,12 +86,12 @@ defmodule Cmsv1.VaccinationsController do
 
   defp authenticate(conn, _opts) do
     if conn.assigns.current_user do
-    conn
+      conn
     else
-    conn
-    |> put_flash(:error, "You must be logged in to access that page")
-    |> redirect(to: session_path(conn, :new))
-    |> halt()
+      conn
+      |> put_flash(:error, "You must be logged in to access that page")
+      |> redirect(to: session_path(conn, :new))
+      |> halt()
     end
     end
 end
