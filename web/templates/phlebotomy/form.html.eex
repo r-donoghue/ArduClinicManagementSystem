@@ -21,7 +21,8 @@
       </div></br>
       <div class="form-group">
         <%= label f, "Test date:", class: "control-label" %>
-        <%= date_select f, :hiv_date, class: "form-control" %>
+         <% {year, _} = Integer.parse(String.slice(to_string(Ecto.DateTime.from_erl(:erlang.localtime)), 0..3)) %>
+        <%= date_select f, :hiv_date, year: [options: year-1..year], class: "form-control" %>
         <%= error_tag f, :hiv_date %>
       </div>
     </div>
@@ -37,7 +38,7 @@
       </div></br>
       <div class="form-group">
         <%= label f, "Date:", class: "control-label" %>
-        <%= date_select f, :hepb_date, class: "form-control" %>
+        <%= date_select f, :hepb_date, year: [options: year-1..year], class: "form-control" %>
         <%= error_tag f, :hepb_date %>
       </div>
     </div>
@@ -53,7 +54,7 @@
       </div></br>
       <div class="form-group">
         <%= label f, "Date:", class: "control-label" %>
-        <%= date_select f, :hepc_date, class: "form-control" %>
+        <%= date_select f, :hepc_date, year: [options: year-1..year], class: "form-control" %>
         <%= error_tag f, :hepc_date %>
       </div>
     </div>
@@ -69,7 +70,7 @@
       </div></br>
       <div class="form-group">
         <%= label f, "Date:", class: "control-label" %>
-        <%= date_select f, :hepa_date, class: "form-control" %>
+        <%= date_select f, :hepa_date, year: [options: year-1..year], class: "form-control" %>
         <%= error_tag f, :hepa_date %>
       </div>
     </div>
@@ -86,7 +87,7 @@
 
       <div class="form-group">
         <%= label f, :ref_date, class: "control-label" %>
-        <%= date_select f, :ref_date, class: "form-control" %>
+        <%= date_select f, :ref_date, year: [options: year-1..year], class: "form-control" %>
         <%= error_tag f, :ref_date %>
       </div>
 

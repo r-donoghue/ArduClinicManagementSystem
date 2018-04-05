@@ -25,6 +25,13 @@ config :logger, :console,
 config :phoenix, :template_engines,
   drab: Drab.Live.Engine
 
+config :cloak, Cloak.AES.CTR,
+  tag: "AES",
+  default: true,
+  keys: [
+    %{tag: <<1>>, key: :base64.decode("6+o9eXdw90rsUv8tlQSjm9Alq1OXXA8kaB9PvZeMRoQ="), default: true}
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

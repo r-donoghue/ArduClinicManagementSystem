@@ -10,6 +10,7 @@ defmodule Cmsv1.Clinic do
     has_one :patients, Cmsv1.Patient
     has_one :vaccs, Cmsv1.Vaccination
     has_one :phleb, Cmsv1.Phlebotomy
+    has_one :clinics, Cmsv1.Clinic
 
 
     timestamps()

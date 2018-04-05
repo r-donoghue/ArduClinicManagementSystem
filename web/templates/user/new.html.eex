@@ -22,7 +22,7 @@
   </div></br>
 
   <div class="form-group">
-    <%= select f, :level, ["Standard", "Admin", "Senior Admin"], class: "form-control" %>
+    <%= select f, :level, ["standard"], class: "form-control" %>
     </div>
     <%= submit "Create User", class: "btn btn-primary" %>
 <% end %>

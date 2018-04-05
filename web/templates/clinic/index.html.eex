@@ -16,13 +16,12 @@
       <td><%= clinic.address %></td>
 
       <td class="text-right">
-        <%= link "Show", to: clinic_path(@conn, :show, clinic), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: clinic_path(@conn, :edit, clinic), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: clinic_path(@conn, :delete, clinic), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Show", to: clinic_path(@conn, :show, clinic), class: "btn btn-primary" %>
+        <%= link "Edit", to: clinic_path(@conn, :edit, clinic), class: "btn btn-primary" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New clinic", to: clinic_path(@conn, :new) %>
+<%= link "Add clinic", class: "btn btn-primary", to: clinic_path(@conn, :new) %>

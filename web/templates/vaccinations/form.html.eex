@@ -27,7 +27,9 @@
       </div></br>
       <div id="dd1" class="form-group" style="display: none">
         <%= label f, "Vaccination date:", class: "control-label" %>
-        <%= date_select f, :dose1_date, class: "form-control" %>
+
+        <% {year, _} = Integer.parse(String.slice(to_string(Ecto.DateTime.from_erl(:erlang.localtime)), 0..3)) %>
+        <%= date_select f, :dose1_date, year: [options: year-1..year+1], id: "dose1", class: "form-control" %>
         <%= error_tag f, :dose1_date %>
       </div>
     </div>
@@ -43,7 +45,7 @@
       </div></br>
       <div id="dd2" class="form-group" style="display: none">
         <%= label f, "Vaccination date:", class: "control-label" %>
-        <%= date_select f, :dose2_date, class: "form-control" %>
+        <%= date_select f, :dose2_date, year: [options: year-1..year+1], id: "dose2", class: "form-control" %>
         <%= error_tag f, :dose2_date %>
       </div>
     </div>
@@ -59,7 +61,7 @@
       </div></br>
       <div id="dd3" class="form-group" style="display: none">
         <%= label f, "Vaccination date:", class: "control-label" %>
-        <%= date_select f, :dose3_date, class: "form-control" %>
+        <%= date_select f, :dose3_date, year: [options: year-1..year+1], id: "dose3", class: "form-control" %>
         <%= error_tag f, :dose3_date %>
       </div>
     </div>
@@ -174,16 +176,14 @@
       } else {
         rd.style.display = "none";
         rt.style.display = "none";
-      }
-    }
+      }}
     function CheckType(active) {
       var rt = document.getElementById("rt");
       var bd = document.getElementById("bd");
       var bdose = document.getElementById("bdose");
 
       var type = rt.options[rt.selectedIndex].text;
-      window.alert(type);
-    }
+      window.alert(type);}
     function show_selected() {
       var bd = document.getElementById("bd");
       var bdetail = document.getElementById("bdetail");
@@ -200,8 +200,95 @@
         bdetail.style.display = "none";
         bd.style.display = "none";
         bdose.style.display = "none";
-      }
-    }
+      }}
 
-document.getElementById('rt2').addEventListener('click', show_selected);;
+    function calcDoseDate(){
+      var day = document.getElementById('dose1_day');
+      var month = document.getElementById('dose1_month');
+      var year = document.getElementById('dose1_year');
+
+      var day1 = document.getElementById('dose2_day');
+      var month1 = document.getElementById('dose2_month');
+      var year1 = document.getElementById('dose2_year');
+
+      var day2 = document.getElementById('dose3_day');
+      var month2 = document.getElementById('dose3_month');
+      var year2 = document.getElementById('dose3_year');
+
+      if (month.value == "1"){
+        year1.value = year.value;
+        month1.value = 6;
+        year2.value = year.value;
+        month2.value = 7;
+      }
+      else if(month.value == 2){
+        year1.value = year.value;
+        month1.value = 7;
+        year2.value = year.value;
+        month2.value = 8;
+      }
+      else if(month.value == 3){
+        year1.value = year.value;
+        month1.value = 8;
+        year2.value = year.value;
+        month2.value = 9;
+      }
+      else if(month.value == 4){
+        year1.value = year.value;
+        month1.value = 9;
+        year2.value = year.value;
+        month2.value = 10;
+      }
+      else if(month.value == 5){
+        year1.value = year.value;
+        month1.value = 10;
+        year2.value = year.value;
+        month2.value = 11;
+      }
+      else if(month.value == 6){
+        year1.value = year.value;
+        month1.value = 11;
+        year2.value = year.value;
+        month2.value = 12;
+      }
+      else if(month.value == 7){
+        year1.value = year.value;
+        month1.value = 12;
+        year2.value = (parseInt(year.value) + 1).toString();
+        month2.value = 1;
+      }
+      else if(month.value == 8){
+        year1.value = (parseInt(year.value) + 1).toString();
+        month1.value = 1;
+        year2.value = (parseInt(year.value) + 1).toString();
+        month2.value = 2;
+      }
+      else if(month.value == 9){
+        year1.value = (parseInt(year.value) + 1).toString();
+        month1.value = 2;
+        year2.value = (parseInt(year.value) + 1).toString();
+        month2.value = 3;
+      }
+      else if(month.value == 10){
+        year1.value = (parseInt(year.value) + 1).toString();
+        month1.value = 3;
+        year2.value = (parseInt(year.value) + 1).toString();
+        month2.value = 4;
+      }
+      else if(month.value == 11){
+        year1.value = (parseInt(year.value) + 1).toString();
+        month1.value = 4;
+        year2.value = (parseInt(year.value) + 1).toString();
+        month2.value = 5;
+      }
+      else{
+        year1.value = (parseInt(year.value) + 1).toString();
+        month1.value = 5;
+        year2.value = (parseInt(year.value) + 1).toString();
+        month2.value = 6;
+      }}
+    
+    document.getElementById('dose1_year').addEventListener('click', calcDoseDate);
+    document.getElementById('dose1_month').addEventListener('click', calcDoseDate);
+    document.getElementById('rt2').addEventListener('click', show_selected);
 </script>

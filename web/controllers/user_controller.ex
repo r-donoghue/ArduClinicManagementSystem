@@ -7,7 +7,7 @@ defmodule Cmsv1.UserController do
     alias Cmsv1.Clinic
 
     def index(conn, _params) do
-        users = Repo.all(Cmsv1.User)
+        users = Repo.all(Cmsv1.User) |> Repo.preload([:clinics])
         render conn, "index.html", users: users
         end
 

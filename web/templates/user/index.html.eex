@@ -1,9 +1,29 @@
-<h1>Listing Users</h1>
+<h2>Users</h2>
+
 <table class="table">
-    <%= for user <- @users do %>
-        <tr>
-            <td><b><%= user.name %></b> (<%= user.id %>)</td>
-            <td><%= link "View", to: user_path(@conn, :show, user.id) %></td>
-        </tr>
-    <% end %>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Clinic</th>
+      <th>Access Level</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.username %></td>
+      <td><%= user.clinics.name %></td>
+      <td><%= user.level %></td>
+      <td class="text-right">
+        <%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-primary" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
 </table>
+
+<%= link "Add user", class: "btn btn-primary", to: user_path(@conn, :new) %>

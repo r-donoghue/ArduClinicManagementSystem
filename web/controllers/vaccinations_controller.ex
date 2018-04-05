@@ -10,6 +10,9 @@ defmodule Cmsv1.VaccinationsController do
   def index(conn, _params) do
     vaccs = Repo.all(Vaccinations)
     patients = Repo.all(Patient) 
+
+    #{{y, _, _}, _} = Ecto.DateTime.from_erl(:erlang.localtime)
+    IO.inspect(String.slice(to_string(Ecto.DateTime.from_erl(:erlang.localtime)), 0..3))
     render(conn, "index.html", vaccs: vaccs, patients: patients)
   end
 

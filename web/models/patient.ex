@@ -6,18 +6,18 @@ defmodule Cmsv1.Patient do
   @derive {Phoenix.Param, key: :patient_id}
   
   schema "patients" do
-    field :ph_number, :binary
-    field :fname, :binary
-    field :lname, :binary
-    field :street, :binary
-    field :towncity, :binary
-    field :county, :binary
-    field :eircode, :binary
-    field :ppsn, :binary
+    field :ph_number, Cloak.EncryptedBinaryField
+    field :fname, Cloak.EncryptedBinaryField
+    field :lname, Cloak.EncryptedBinaryField
+    field :street, Cloak.EncryptedBinaryField
+    field :towncity, Cloak.EncryptedBinaryField
+    field :county, Cloak.EncryptedBinaryField
+    field :eircode, Cloak.EncryptedBinaryField
+    field :ppsn, Cloak.EncryptedBinaryField
     field :date_of_birth, Ecto.Date
     field :gender, :string
     field :medical_card_present, :boolean, default: false
-    field :medical_card_number, :binary
+    field :medical_card_number, Cloak.EncryptedBinaryField
     field :medical_card_expiry, Ecto.Date
     field :mobile_number, :string
     field :landline_number, :string
