@@ -10,17 +10,28 @@ defmodule Cmsv1.PatientCommander do
   alias Cmsv1.Gender
   alias Cmsv1.Relationship
 
-  def refresh_fields(socket, _sender) do
-    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.pharm_id, &1.name}) |> Enum.into(%{})  
-    doctors = Repo.all(CDoctor) |> Enum.map(&{&1.cdoctor_id,&1.name}) |> Enum.into(%{})  
-    gps = Repo.all(GP) |> Enum.map(&{&1.gp_id, &1.name}) |> Enum.into(%{})  
+  def refresh_genders(socket, _sender) do
     genders = Repo.all(Gender) |> Enum.map(&{&1.gender, &1.gender}) |> Enum.into(%{})  
-    relations = Repo.all(Relationship) |> Enum.map(&{&1.relationship, &1.relationship}) |> Enum.into(%{})  
-
-    set_prop socket, "#patient_pharm_id" , options: pharms
-    set_prop socket, "#patient_cdoctor_id" , options: doctors
-    set_prop socket, "#patient_gp_id" , options: gps
     set_prop socket, "#patient_gender" , options: genders
+  end
+
+  def refresh_pharms(socket, _sender) do
+    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.pharm_id, &1.name}) |> Enum.into(%{}) 
+    set_prop socket, "#patient_pharm_id" , options: pharms
+  end
+
+  def refresh_gps(socket, _sender) do
+    gps = Repo.all(GP) |> Enum.map(&{&1.gp_id, &1.name}) |> Enum.into(%{}) 
+    set_prop socket, "#patient_gp_id" , options: gps
+  end
+
+  def refresh_doctors(socket, _sender) do
+    doctors = Repo.all(CDoctor) |> Enum.map(&{&1.cdoctor_id,&1.name}) |> Enum.into(%{})
+    set_prop socket, "#patient_cdoctor_id" , options: doctors  
+  end
+
+  def refresh_relations(socket, _sender) do
+    relations = Repo.all(Relationship) |> Enum.map(&{&1.relationship, &1.relationship}) |> Enum.into(%{})  
     set_prop socket, "#patient_nok_rel" , options: relations
   end
 end

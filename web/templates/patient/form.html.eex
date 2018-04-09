@@ -66,7 +66,7 @@
     <%= select f, :pharm_id, @pharms, prompt: "Choose a pharmacy", class: "form-control"%>
 
     <span class="input-group-addon">
-      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+      <a class="badge badge-warning" drab-click="refresh_pharms">Refresh</a>
     </span>
     <%= error_tag f, :pharm_id %>
 
@@ -76,7 +76,7 @@
     <span class="input-group-addon" id="basic-addon1">Patient's Clinic Doctor:</span>
     <%= select f, :cdoctor_id, @doctors, prompt: "Choose a clinic doctor", class: "form-control" %>
     <span class="input-group-addon">
-      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+      <a class="badge badge-warning" drab-click="refresh_doctors">Refresh</a>
     </span>
     <%= error_tag f, :cdoctor_id %>
   </div></br>
@@ -85,7 +85,7 @@
     <span class="input-group-addon" id="basic-addon1">Patient's GP:</span>
     <%= select f, :gp_id, @gps, prompt: "Choose a GP", class: "form-control" %>
     <span class="input-group-addon">
-      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+      <a class="badge badge-warning" drab-click="refresh_gps">Refresh</a>
     </span>
     <%= error_tag f, :gp_id %>
   </div></br>
@@ -107,7 +107,7 @@
     <span class="input-group-addon" id="basic-addon1">Gender:</span>
     <%= select f, :gender, @genders, class: "form-control" %>
     <span class="input-group-addon">
-      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+      <a class="badge badge-warning" drab-click="refresh_genders">Refresh</a>
     </span>
     <%= error_tag f, :gender %>
   </div></br>
@@ -171,7 +171,7 @@
     <span class="input-group-addon" id="basic-addon1">Relationship to patient:</span>
     <%= select f, :nok_rel, @relations , class: "form-control" %>
     <span class="input-group-addon">
-      <a class="badge badge-warning" drab-click="refresh_fields">Refresh</a>
+      <a class="badge badge-warning" drab-click="refresh_relations">Refresh</a>
     </span>
     <%= error_tag f, :nok_rel %>
   </div></br>
