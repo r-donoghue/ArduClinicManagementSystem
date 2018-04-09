@@ -16,12 +16,12 @@ defmodule Cmsv1.PatientCommander do
   end
 
   def refresh_pharms(socket, _sender) do
-    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.pharm_id, &1.name}) |> Enum.into(%{}) 
+    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name<>" , "<>&1.address, &1.pharm_id}) |> Enum.into(%{})
     set_prop socket, "#patient_pharm_id" , options: pharms
   end
 
   def refresh_gps(socket, _sender) do
-    gps = Repo.all(GP) |> Enum.map(&{&1.gp_id, &1.name}) |> Enum.into(%{}) 
+    gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id}) |> Enum.into(%{}) 
     set_prop socket, "#patient_gp_id" , options: gps
   end
 
