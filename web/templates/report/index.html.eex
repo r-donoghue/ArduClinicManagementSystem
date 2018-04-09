@@ -13,6 +13,7 @@
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Clinic Doctor</button></th>
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Pharmacy</button></th>
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">County</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Age</button></th>
         </tr>
         </tr>
       </thead>
@@ -25,6 +26,7 @@
             <td style="text-align: center;" scope="row"><%= link p.cdoctors.name, to: c_doctor_path(@conn, :show, p.cdoctor_id), class: "" %></td>
             <td style="text-align: center;" scope="row"><%= link p.pharms.name, to: pharmacy_path(@conn, :show, p.pharm_id), class: "" %></td>
             <td style="text-align: center;" scope="row"><%= p.county %></td>
+            <td style="text-align: center;" scope="row"><%= p.age %></td>
         </tr>
         <%= end %>
       </tbody>
