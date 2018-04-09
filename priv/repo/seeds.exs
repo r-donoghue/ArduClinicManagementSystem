@@ -80,15 +80,12 @@ Cmsv1.Repo.insert(p)
 p = %Cmsv1.Pharmacy{pharm_id: "3480f111-ccf3-46bb-93c2-e5c1ac8d8208", name: "Morrisseys Carlow", address: "Tullow Street, Carlow Town, Co. Carlow", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "lloyds@carlow.com", contact_person: "Jenny Byrne", contact_person_number: "087-xxx-xxxx"}
 Cmsv1.Repo.insert(p)
 
-p = %Cmsv1.Pharmacy{pharm_id: "3480f2c1-ccf3-46bb-93c2-e5c1ac8d8208", name: "Lloyds Carlow", address: "Barrow Street, Carlow Town, Co. Carlow", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "Morriseys@carlow.com", contact_person: "Jenny Dooley", contact_person_number: "083-xxx-xxxx"}
+p = %Cmsv1.Pharmacy{pharm_id: "3480f222-ccf3-46bb-93c2-e5c1ac8d8208", name: "Lloyds Carlow", address: "Barrow Street, Carlow Town, Co. Carlow", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "Morriseys@carlow.com", contact_person: "Jenny Dooley", contact_person_number: "083-xxx-xxxx"}
 Cmsv1.Repo.insert(p)
 
-p = %Cmsv1.Pharmacy{pharm_id: "3480f111-ccf3-46bb-93c2-e5c1ac8d8208", name: "Sam McCauleys Carlow", address: "Other Street, Carlow Town, Co. Carlow", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "lloyds@carlow.com", contact_person: "Jenny Byrne", contact_person_number: "087-xxx-xxxx"}
+p = %Cmsv1.Pharmacy{pharm_id: "3480f333-ccf3-46bb-93c2-e5c1ac8d8208", name: "Sam McCauleys Carlow", address: "Other Street, Carlow Town, Co. Carlow", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "lloyds@carlow.com", contact_person: "Jenny Byrne", contact_person_number: "087-xxx-xxxx"}
 Cmsv1.Repo.insert(p)
 
-p = %Cmsv1.Pharmacy{pharm_id: "3480f2c1-ccf3-46bb-93c2-e5c1ac8d8208", name: "Sam McCauleys Waterford", address: "Main Street, Waterford Town, Co. Waterford", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "Morriseys@carlow.com", contact_person: "Jenny Dooley", contact_person_number: "083-xxx-xxxx"}
-Cmsv1.Repo.insert(p)
-
-p = %Cmsv1.Pharmacy{pharm_id: "3480f111-ccf3-46bb-93c2-e5c1ac8d8208", name: "Stacks Baltinglas", address: "Main Street, Baltinglas, Co. Wicklow", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "lloyds@carlow.com", contact_person: "Jenny Byrne", contact_person_number: "087-xxx-xxxx"}
+p = %Cmsv1.Pharmacy{pharm_id: "3480f444-ccf3-46bb-93c2-e5c1ac8d8208", name: "Sam McCauleys Waterford", address: "Main Street, Waterford Town, Co. Waterford", mobile_number: "085-xxx-xxxx", landline_number: "05991-xx-xxx", fax: "xxx1234", email: "Morriseys@carlow.com", contact_person: "Jenny Dooley", contact_person_number: "083-xxx-xxxx"}
 Cmsv1.Repo.insert(p)
 
