@@ -11,7 +11,7 @@ defmodule Cmsv1.SessionController do
             {:ok, conn} ->
                 conn
                 |> put_flash(:info, "Welcome back!")
-                |> redirect(to: patient_path(conn, :index))
+                |> redirect(to: user_path(conn, :index))
             {:error, _reason, conn} ->
                 conn
                 |> put_flash(:error, "Invalid username/password combination")

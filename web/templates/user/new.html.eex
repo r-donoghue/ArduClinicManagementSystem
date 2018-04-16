@@ -16,7 +16,7 @@
     </div>
 
     <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Patient's GP:</span>
+    <span class="input-group-addon" id="basic-addon1">Clinic:</span>
     <%= select f, :clinic_id, @clinics, prompt: "Choose a Clinic", class: "form-control" %>
     <%= error_tag f, :clinic_id %>
   </div></br>

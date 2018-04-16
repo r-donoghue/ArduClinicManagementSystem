@@ -16,7 +16,11 @@
 
         <tr>
           <td>Patient is HIV positive:</td>
-          <td><%= @phlebotomy.hiv_status %></td>
+          <%= if @phlebotomy.hiv_status == true do %>
+            <td>Yes</td>
+          <%= else %>
+            <td>No</td>
+          <%= end %>
         </tr>
         <tr>
           <td>HIV test date:</td>
@@ -24,7 +28,11 @@
         </tr>
         <tr>
           <td>Patient is Hepatitus C positive:</td>
-          <td><%= @phlebotomy.hepc_status %></td>
+          <%= if @phlebotomy.hepc_status == true do %>
+            <td>Yes</td>
+          <%= else %>
+            <td>No</td>
+          <%= end %>
         </tr>
         <tr>
           <td>Hepatitus C test date:</td>
@@ -32,7 +40,11 @@
         </tr>
         <tr>
           <td>Patient is Hepatitus A positive:</td>
-          <td><%= @phlebotomy.hepa_status %></td>
+          <%= if @phlebotomy.hepa_status == true do %>
+            <td>Yes</td>
+          <%= else %>
+            <td>No</td>
+          <%= end %>
         </tr>
         <tr>
           <td>Hepatitus A test date:</td>
@@ -40,7 +52,11 @@
         </tr>
         <tr>
           <td>Patient is Hepatitus B positive:</td>
-          <td><%= @phlebotomy.hepb_status %></td>
+          <%= if @phlebotomy.hepb_status == true do %>
+            <td>Yes</td>
+          <%= else %>
+            <td>No</td>
+          <%= end %>
         </tr>
         <tr>
           <td>Hepatitus B test date:</td>

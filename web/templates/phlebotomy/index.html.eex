@@ -4,11 +4,10 @@
   <thead>
     <tr>
       <th style="text-align: center;" ><button type="button" class="btn btn-default">Name</th>
-      <th style="text-align: center;" ><button type="button" class="btn btn-default">HIV postive</th>
-      <th style="text-align: center;" ><button type="button" class="btn btn-default">HEP C positive</th>
       <th style="text-align: center;" ><button type="button" class="btn btn-default">HEP A positive</th>
       <th style="text-align: center;" ><button type="button" class="btn btn-default">HEP B positive</th>
-
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">HEP C positive</th>
+      <th style="text-align: center;" ><button type="button" class="btn btn-default">HIV postive</th>
       <th></th>
     </tr>
   </thead>
@@ -24,7 +23,14 @@
           <%= end %> 
         <% end %>
 
-        <%= if phlebotomy.hiv_status == true do %>
+        
+        
+        <%= if phlebotomy.hepa_status == true do %>
+          <td style="text-align: center; color: orange">Yes</td>
+        <%= else %>
+          <td style="text-align: center; color: blue">No</td>
+        <%= end %>
+        <%= if phlebotomy.hepb_status == true do %>
           <td style="text-align: center; color: orange">Yes</td>
         <%= else %>
           <td style="text-align: center; color: blue">No</td>
@@ -34,12 +40,7 @@
         <%= else %>
           <td style="text-align: center; color: blue">No</td>
         <%= end %>
-        <%= if phlebotomy.hepa_status == true do %>
-          <td style="text-align: center; color: orange">Yes</td>
-        <%= else %>
-          <td style="text-align: center; color: blue">No</td>
-        <%= end %>
-        <%= if phlebotomy.hepb_status == true do %>
+        <%= if phlebotomy.hiv_status == true do %>
           <td style="text-align: center; color: orange">Yes</td>
         <%= else %>
           <td style="text-align: center; color: blue">No</td>
@@ -58,6 +59,6 @@
 
 
 
-<%= link "Add Phlebotomy Record", to: phlebotomy_path(@conn, :new) %>
+<%= link "Add Phlebotomy Record", to: phlebotomy_path(@conn, :new), class: "btn btn-primary"%>
 
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

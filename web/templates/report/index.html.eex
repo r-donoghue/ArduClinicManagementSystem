@@ -7,26 +7,30 @@
     <table class="sortable table">
       <thead>
         <tr   >
-          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Patient Name</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">First Name</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Last Name</button></th>
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">D.O.B</button></th>
+          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Age</button></th>
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">GP</button></th>
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Clinic Doctor</button></th>
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Pharmacy</button></th>
           <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">County</button></th>
-          <th style="text-align: center;" scope="col"><button type="button" class="btn btn-primary">Age</button></th>
+          
         </tr>
         </tr>
       </thead>
       <tbody>
         <%= for  p  <-  @patients  do %>
         <tr>
-            <td style="text-align: center;" scope="row"><%= link p.fname<>" "<>p.lname, to: patient_path(@conn, :show, p), class: "" %><br></th>
+            <td style="text-align: center;" scope="row"><%= link p.fname, to: patient_path(@conn, :show, p), class: "" %><br></th>
+            <td style="text-align: center;" scope="row"><%= link p.lname, to: patient_path(@conn, :show, p), class: "" %><br></th>
             <td style="text-align: center;" scope="row"><%= p.date_of_birth %></td>
+            <td style="text-align: center;" scope="row"><%= p.age %></td>
             <td style="text-align: center;" scope="row"><%= link p.gps.name, to: gp_path(@conn, :show, p.gp_id), class: "" %></td>
             <td style="text-align: center;" scope="row"><%= link p.cdoctors.name, to: c_doctor_path(@conn, :show, p.cdoctor_id), class: "" %></td>
             <td style="text-align: center;" scope="row"><%= link p.pharms.name, to: pharmacy_path(@conn, :show, p.pharm_id), class: "" %></td>
             <td style="text-align: center;" scope="row"><%= p.county %></td>
-            <td style="text-align: center;" scope="row"><%= p.age %></td>
+            
         </tr>
         <%= end %>
       </tbody>

@@ -3,7 +3,7 @@ defmodule Cmsv1.PatientController do
   use Drab.Controller
 
   
-
+  plug :authenticate when action in [:index, :show, :new, :edit, :update, :delete]
   import Ecto.Changeset
   import Ecto.Date
   
@@ -49,7 +49,7 @@ defmodule Cmsv1.PatientController do
 
     doctors = Repo.all(CDoctor) |> Enum.map(&{&1.name, &1.cdoctor_id}) |> Enum.into(%{}) 
     gps = Repo.all(GP) |> Enum.map(&{&1.name, &1.gp_id}) |> Enum.into(%{}) 
-    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name, &1.pharm_id}) |> Enum.into(%{}) 
+    pharms = Repo.all(Pharmacy) |> Enum.map(&{&1.name<>" , "<>&1.address, &1.pharm_id}) |> Enum.into(%{})
     inactivity = Repo.all(Inactivity) |> Enum.map(&{&1.reason, &1.reason}) |> Enum.into(%{}) 
     relations = Repo.all(Relationship) |> Enum.map(&{&1.relationship, &1.relationship}) |> Enum.into(%{})
     genders = Repo.all(Gender) |> Enum.map(&{&1.gender, &1.gender}) |> Enum.into(%{})
@@ -119,7 +119,7 @@ defmodule Cmsv1.PatientController do
     |> redirect(to: patient_path(conn, :index))
   end
 
-  plug :authenticate when action in [:index, :show, :new, :edit, :update, :delete]
+  
 
   defp authenticate(conn, _opts) do
     if conn.assigns.current_user do
