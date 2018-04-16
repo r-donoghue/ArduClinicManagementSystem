@@ -18,6 +18,7 @@ defmodule Cmsv1.Auth do
         |> put_session(:user_id, user.id)
         |> put_session(:clinic_id, user.clinic_id)
         |> put_session(:user_name, user.name)
+        |> put_session(:level, user.level)
         |> configure_session(renew: true)
     end
 
